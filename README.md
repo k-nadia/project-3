@@ -81,7 +81,7 @@ Deployed website can be be found here:
 
 ## **Deployment**
 
-This website was deployed to GitHub Pages.
+This website was deployed to Heroku.
 
 ### **Deployment Steps**
 
