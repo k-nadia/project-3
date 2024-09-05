@@ -116,6 +116,28 @@ This website was deployed to Heroku.
 
 ### **Deployment Steps**
 
+#### **Heroku Log In**
+1. Log in to [Heroku](https://id.heroku.com/login) or create a new Heroku account [here](https://signup.heroku.com/)
+2. Click 'Create New App' and enter a unique app name
+3. Select your region from the drop-down menu
+4. Click on the 'Create App' button
+
+#### **Adjust Settings**
+5. Navigate to the 'Settings' tab
+6. Scroll down to 'Config Vars' and select 'Reveal Config Vars'
+7. Type 'PORT' into the key box and '8000' into the value box, then click 'Add'
+8. Enter a second config var: enter 'CREDS' into the key box and copy and paste the contents of your creds.JSON file into the value box.
+9. Click 'Add'
+10. Scroll down to 'Buildpack'and click 'Add Buildpack'
+11. Select 'Python' and click 'Save Changes'
+12. Select 'NODE.js' and click 'Save Changes (note: buildpacks must be in this order)
+
+#### **Deploy Application**
+13. Click on the 'Deploy' tab and select 'GitHub'
+14. Confirm you wish to connect to GitHub
+15. Search for the repository name and then click 'Connect'
+16. Scroll down and either select 'Enable Automatic Deploys' (for automatic deployment of any changes made to GitHub repository) or select 'Deploy Branch' (for manual deployment)
+
 ### **Forking Steps**
 
 ### **Cloning Steps**
