@@ -1,4 +1,4 @@
-# **PP3 - Title** 
+# **WeatherWise** 
 
 <br>
 
@@ -10,6 +10,14 @@
 <hr>
 
 # **Introduction**
+
+
+Portfolio Project 2 - Code Institute Full Stack Development Diploma
+
+WeatherWise is a Python-based command line application that offers current, daily and historic weather insights based on the user's location. The application utilises API to retrieve up-to-date accurate weather data and runs via a mock terminal on Heroku. JSON is used in this project to retrieve, parse and present weather API data to the user.
+
+WeatherWise was designed as an ultra-efficient solution for users who require access to weather information at a moments notice. The no-frills, data-driven interface eliminates elements typical of a traditional weather info site which can hinder data delivery speed and negatively impact the user expierience, such as: ads, slow-loading graphics, unrelated content, cookies and complex navigation menus.
+
 Deployed website can be be found here:
 
 # Table of Contents
