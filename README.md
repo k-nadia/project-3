@@ -113,7 +113,7 @@ As a developer, I wish to:
 ## **Deployment**
 
 ### **Deployment Steps**
-Fork this project using the following steps:
+Deploy this project using the following steps:
 
 #### **Heroku Log In**
 1. Log in to [Heroku](https://id.heroku.com/login) or create a new Heroku account [here](https://signup.heroku.com/).
