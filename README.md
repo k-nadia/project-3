@@ -112,35 +112,46 @@ As a developer, I wish to:
 
 ## **Deployment**
 
-This website was deployed to Heroku.
-
 ### **Deployment Steps**
+Fork this project using the following steps:
 
 #### **Heroku Log In**
-1. Log in to [Heroku](https://id.heroku.com/login) or create a new Heroku account [here](https://signup.heroku.com/)
-2. Click 'Create New App' and enter a unique app name
-3. Select your region from the drop-down menu
-4. Click on the 'Create App' button
+1. Log in to [Heroku](https://id.heroku.com/login) or create a new Heroku account [here](https://signup.heroku.com/).
+2. Click 'Create New App' and enter a unique app name.
+3. Select your region from the drop-down menu.
+4. Click on the 'Create App' button.
 
 #### **Adjust Settings**
-5. Navigate to the 'Settings' tab
-6. Scroll down to 'Config Vars' and select 'Reveal Config Vars'
-7. Type 'PORT' into the key box and '8000' into the value box, then click 'Add'
-8. Enter a second config var: enter 'CREDS' into the key box and copy and paste the contents of your creds.JSON file into the value box.
-9. Click 'Add'
-10. Scroll down to 'Buildpack'and click 'Add Buildpack'
-11. Select 'Python' and click 'Save Changes'
-12. Select 'NODE.js' and click 'Save Changes (note: buildpacks must be in this order)
+5. Navigate to the 'Settings' tab.
+6. Scroll down to 'Config Vars' and select 'Reveal Config Vars'.
+7. Type 'PORT' into the key box and '8000' into the value box, then click 'Add'.
+8. Enter a second config var: enter 'CREDS' into the key box, copy and paste the contents of your creds.JSON file into the value box, then click 'Add'.
+9. Scroll down to 'Buildpack'and click 'Add Buildpack'.
+10. Select 'Python' and click 'Save Changes'.
+11. Select 'NODE.js' and click 'Save Changes (note: buildpacks must be in this order).
 
 #### **Deploy Application**
-13. Click on the 'Deploy' tab and select 'GitHub'
-14. Confirm you wish to connect to GitHub
-15. Search for the repository name and then click 'Connect'
-16. Scroll down and either select 'Enable Automatic Deploys' (for automatic deployment of any changes made to GitHub repository) or select 'Deploy Branch' (for manual deployment)
+12. Click on the 'Deploy' tab and select 'GitHub'.
+13. Confirm you wish to connect to GitHub.
+14. Search for the repository name and then click 'Connect'.
+15. Scroll down and either select 'Enable Automatic Deploys' (for automatic deployment of any changes made to GitHub repository) or select 'Deploy Branch' (for manual deployment).
 
 ### **Forking Steps**
+Fork this project using the following steps:
+1. Open the respository at [PP3 Github](https://github.com/k-nadia/project-3).
+2. Select the 'Fork' button near the top of the page.
+3. After a few minutes the newly forked repository will be created under your GitHub account.
 
 ### **Cloning Steps**
+Clone this project using the following steps:
+1. Open the respository at [PP3 Github](https://github.com/k-nadia/project-3).
+2. Select the green 'Code' button near the top of the page.
+3. Choose from one of the 3 cloning options: HTTPS, SSH, GitHub CLI.
+4. Click on the clipboard icon to copy the URL.
+5. Open a new GitPod terminal.
+6. Type 'git clone' and paste in the URL copied earlier.
+7. Press enter to complete the cloning process. 
+
 
 <hr>
 
