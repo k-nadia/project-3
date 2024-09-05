@@ -52,6 +52,22 @@ Deployed website can be be found here:
 
 ### **User Stories**
 
+As a user, I wish to:
+
+- Immediately understand the purpose of the application, so I can quickly determine if it meets my needs.
+- Receive clear feedback on invalid inputs, so I can quickly correct my entries and proceed with using the application.
+- Input my country and city easily, so I can get localized weather information relevant to my area.
+- View the current weather forecast, so I can plan my immediate activities accordingly.
+- See the daily weather forecast, so I can plan my week and make informed decisions about upcoming events.
+- Be notified of any national weather alerts, so I can stay safe and prepared for potential severe weather conditions.
+- Access historical weather data, so I can compare current conditions with past trends and make long-term plans.
+- Use a simple and intuitive interface, so I can navigate the application easily without needing extensive instructions.
+
+As a developer, I wish to: 
+
+- Access a README file so that I can understand the scope and purpose of the project and locate essential information regarding the application
+- Access deployment information so I can follow step-by-step instructions on how to deploy the project
+
 <hr>
 
 ## **Logic**
