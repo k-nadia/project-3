@@ -5,6 +5,7 @@ from google.oauth2.service_account import Credentials
 import colorama
 from colorama import Fore, Back, Style
 colorama.init(autoreset=True)
+from pprint import pprint
 
 """ 
 API Credentials
