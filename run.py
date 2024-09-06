@@ -13,6 +13,9 @@ OpenWeather API URLS
 """
 GEOCODING_BASE_URL = "http://api.openweathermap.org/geo/1.0/direct?" 
 # http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}
+CURRENT_AND_FORECAST_BASE_URL = "https://api.openweathermap.org/data/3.0/onecall?"
+# https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
+
 
 """ 
 Google Sheets 
