@@ -51,8 +51,11 @@ def input_name():
         else:
             break
 
-welcome_message()
-input_name()
+input_city = input(f"{Fore.CYAN} Please enter your city:")
+print(input_city)
+
+# welcome_message()
+# input_name()
 
 
 
