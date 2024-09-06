@@ -39,7 +39,7 @@ sales = SHEET.worksheet('sales')
 data = sales.get_all_values()
 
 def welcome_message():
-    print(f"{Fore.CYAN} W E L C O M E   T O   W E A T H E R W I S E   A P P . . .")
+    print(f"{Fore.CYAN}\n W E L C O M E   T O   W E A T H E R W I S E   A P P . . .\n")
 
 welcome_message()
 
