@@ -41,8 +41,17 @@ data = sales.get_all_values()
 def welcome_message():
     print(f"{Fore.CYAN}\n W E L C O M E   T O   W E A T H E R W I S E   A P P . . .\n")
 
-welcome_message()
+def input_name():
+    while True:
+        name = input(f"{Fore.CYAN} Please enter your name:")
+        if name == "" or name == " ":
+            print(f"{Fore.MAGENTA} This is not a valid name, please try again...\n")
+            continue
+        else:
+            break
 
+welcome_message()
+input_name()
 
 
 
