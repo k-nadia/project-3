@@ -3,6 +3,14 @@ from datetime import datetime
 import gspread
 from google.oauth2.service_account import Credentials
 
+""" 
+API Credentials
+"""
+API_KEY = open('api_key', 'r'.read())
+
+""" 
+Google Sheets 
+"""
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
