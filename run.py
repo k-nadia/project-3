@@ -9,7 +9,7 @@ colorama.init(autoreset=True)
 """ 
 API Credentials
 """
-API_KEY = open('api_key', 'r'.read())
+API_KEY = open('api_key', 'r').read()
 
 """
 OpenWeather API URLS
@@ -37,7 +37,12 @@ SHEET = GSPREAD_CLIENT.open('project-3')
 
 sales = SHEET.worksheet('sales')
 data = sales.get_all_values()
-print(data)
+
+def welcome_message():
+    print(f"{Fore.CYAN} W E L C O M E   T O   W E A T H E R W I S E   A P P . . .")
+
+welcome_message()
+
 
 
 
