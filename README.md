@@ -161,6 +161,9 @@ Clone this project using the following steps:
 - ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 
 ### **Python Packages**
+- [Colorama:](https://pypi.org/project/colorama/) enables coloured text display in the terminal
+- [DateTime:](https://pypi.org/project/DateTime/) provides DataTime data type
+- [Requests:](https://pypi.org/project/requests/) allows HTTP requests to be sent
 
 ### **Frameworks - Libraries - Programs Used**
 
