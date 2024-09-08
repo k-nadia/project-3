@@ -53,12 +53,16 @@ def input_name():
 
 def geocode_city():
     """
-    Request user input their city
-
+    Prompts the user to enter a city name and retrieves the geographical 
+    coordinates (latitude and longitude) of that city using the OpenWeather 
+    API's geocoding service.
     """
     input_city = input(f"{Fore.CYAN} Please enter your city:")
     city = requests.get(f'{GEOCODING_BASE_URL}q={input_city}&limit=1&appid={API_KEY}')
-    city_geo_data = city.json()
+    city_geo_data = city.json()[0]
+    latitude = city_geo_data["lat"]
+    longitude = city_geo_data["lon"]
+    print(latitude, longitude)
 
 
 # welcome_message()
