@@ -59,6 +59,17 @@ def geocode_city():
     """
     input_city = input(f"{Fore.CYAN} Please enter your city:")
     city = requests.get(f'{GEOCODING_BASE_URL}q={input_city}&limit=1&appid={API_KEY}')
+    
+    if city.status_code != 200:
+        print(f"{Fore.RED}Error: Unable to connect to the OpenWeather API. Please check your internet connection and API key.")
+        return
+
+    city_geo_data = city.json()
+    
+    if not city_geo_data:
+        print(f"{Fore.RED}Error: City not found. Please check the spelling or try a different city.")
+        return
+    
     city_geo_data = city.json()[0]
     city_name = city_geo_data["name"]
     latitude = city_geo_data["lat"]
@@ -69,9 +80,6 @@ def geocode_city():
     #print(latitude, longitude, country, state)
     print(f"\nYour location is {city_name}, {state}, {country}.\nLatitude: {latitude}\nLongitude: {longitude}")
 
-
-# welcome_message()
-# input_name()
 geocode_city()
 
 
