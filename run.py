@@ -58,7 +58,7 @@ def geocode_city():
     """
     input_city = input(f"{Fore.CYAN} Please enter your city:")
     city = requests.get(f'{GEOCODING_BASE_URL}q={input_city}&limit=1&appid={API_KEY}')
-    print(city.json())
+    city_geo_data = city.json()
 
 
 # welcome_message()
