@@ -15,11 +15,11 @@ API_KEY = open('api_key', 'r').read()
 """
 OpenWeather API URLS
 """
-GEOCODING_BASE_URL = "http://api.openweathermap.org/geo/1.0/direct?" 
+GEOCODING_BASE_URL = 'http://api.openweathermap.org/geo/1.0/direct?'
 # http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}
-CURRENT_AND_FORECAST_BASE_URL = "https://api.openweathermap.org/data/3.0/onecall?"
+CURRENT_AND_FORECAST_BASE_URL = 'https://api.openweathermap.org/data/3.0/onecall?'
 # https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
-PAST_WEATHER_BASE_URL = "https://api.openweathermap.org/data/3.0/onecall/timemachine?"
+PAST_WEATHER_BASE_URL = 'https://api.openweathermap.org/data/3.0/onecall/timemachine?'
 # https://api.openweathermap.org/data/3.0/onecall/timemachine?lat={lat}&lon={lon}&dt={time}&appid={API key}
 
 """ 
@@ -52,7 +52,7 @@ def input_name():
             break
 
 input_city = input(f"{Fore.CYAN} Please enter your city:")
-print(input_city)
+
 
 # welcome_message()
 # input_name()
