@@ -51,11 +51,19 @@ def input_name():
         else:
             break
 
-input_city = input(f"{Fore.CYAN} Please enter your city:")
+def geocode_city():
+    """
+    Request user input their city
+
+    """
+    input_city = input(f"{Fore.CYAN} Please enter your city:")
+    city = requests.get(f'{GEOCODING_BASE_URL}q={input_city}&limit=1&appid={API_KEY}')
+    print(city)
 
 
 # welcome_message()
 # input_name()
+geocode_city()
 
 
 
