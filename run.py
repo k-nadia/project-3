@@ -60,9 +60,14 @@ def geocode_city():
     input_city = input(f"{Fore.CYAN} Please enter your city:")
     city = requests.get(f'{GEOCODING_BASE_URL}q={input_city}&limit=1&appid={API_KEY}')
     city_geo_data = city.json()[0]
+    city_name = city_geo_data["name"]
     latitude = city_geo_data["lat"]
     longitude = city_geo_data["lon"]
-    print(latitude, longitude)
+    state = city_geo_data["state"]
+    country = city_geo_data["country"]
+    #print(city.json())
+    #print(latitude, longitude, country, state)
+    print(f"\nYour location is {city_name}, {state}, {country}.\nLatitude: {latitude}\nLongitude: {longitude}")
 
 
 # welcome_message()
