@@ -39,6 +39,7 @@ SHEET = GSPREAD_CLIENT.open('project-3')
 sales = SHEET.worksheet('sales')
 data = sales.get_all_values()
 
+
 def welcome_message():
     print(f"{Fore.CYAN}\n W E L C O M E   T O   W E A T H E R W I S E   A P P . . .\n")
 
@@ -80,16 +81,16 @@ def geocode_city():
             print(f"Latitude: {latitude}")
             print(f"Longitude: {longitude}")
 
-            return city_geo_data    
+            return latitude, longitude  
 
         except requests.exceptions.RequestException as e:
             print(f"{Fore.RED}Error: Unable to connect to the OpenWeather API. Please check your internet connection and API key.")
             print(f"Error details: {e}")
             continue
 
-    return latitude, longitude
-
-
+def current_weather(lat, lon):
+    weather_data = requests.get(f'{CURRENT_AND_FORECAST_BASE_URL}lat={latitude}&lon={longitude}&appid={API_KEY}')
+    print(weather_data.json())
 
 def options_menu():
     while True:
@@ -124,8 +125,9 @@ def main():
                 print(f"{Fore.RED}Failed to get city data. Please try again.")
 
 
-main()
-
+#main()
+geocode_city()
+current_weather(latitude, longitude)
 
 
 
