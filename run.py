@@ -80,6 +80,8 @@ def geocode_city():
     #print(latitude, longitude, country, state)
     print(f"\nYour location is {city_name}, {state}, {country}.\nLatitude: {latitude}\nLongitude: {longitude}")
 
+welcome_message()
+input_name()
 geocode_city()
 
 
