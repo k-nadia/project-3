@@ -127,24 +127,24 @@ def options_menu():
 
 def main():
     welcome_message()
-    while True:
-        input_name()
+    input_name()  
 
-        while True:
-            city_geo_data = geocode_city()
-            if city_geo_data:
-                choice = options_menu()
+    while True:
+        city_geo_data = geocode_city() 
+        if city_geo_data:
+            while True:
+                choice = options_menu()  
 
                 if choice == 'current_weather':  
-                    latitude = city_geo_data["lat"]
-                    longitude = city_geo_data["lon"]
+                    latitude = city_geo_data["lat"] 
+                    longitude = city_geo_data["lon"]  
                     current_weather(latitude, longitude)  
                 elif choice == 'geocode_city':
                     continue  
                 elif choice == 'input_name':
                     break  
-            else:
-                print(f"{Fore.RED}Failed to get city data. Please try again.")
+        else:
+            print(f"{Fore.RED}Failed to get city data. Please try again.")
 
 
 main()
