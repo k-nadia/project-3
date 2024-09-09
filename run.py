@@ -44,7 +44,7 @@ def welcome_message():
 
 def input_name():
     while True:
-        name = input(f"{Fore.CYAN} Please enter your name:")
+        name = input(f"{Fore.CYAN} Please enter your name: ")
         if name == "" or name == " ":
             print(f"{Fore.MAGENTA} This is not a valid name, please try again...\n")
             continue
@@ -100,6 +100,7 @@ def options_menu():
         if choice == '5':
             return 'geocode_city'
         elif choice == '6':
+            print(f"\n Restarting WeatherWise application...\n")
             return 'input_name'
         else:
             print(f"{Fore.RED}Invalid option. Please enter 5 or 6.")
@@ -112,7 +113,7 @@ def main():
             city_geo_data = geocode_city()
             if city_geo_data:
                 choice = options_menu()
-                
+
                 if choice == 'geocode_city':
                     continue
                 elif choice == 'input_name':
