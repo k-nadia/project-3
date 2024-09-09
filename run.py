@@ -89,15 +89,19 @@ def geocode_city():
 
     return None
     
-    
+def main():
+    welcome_message()
+    input_name()
+    geocode_city()
 
-    #print(city.json())
-    #print(latitude, longitude, country, state)
-    
+main()
 
-welcome_message()
-input_name()
-geocode_city()
+
+
+
+
+
+
 
 
 
