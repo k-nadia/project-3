@@ -88,14 +88,28 @@ def geocode_city():
             continue
 
     return None
-    
+
+def options_menu():
+    while True:
+        print(f"\n{Fore.CYAN}Please choose an option:")
+        print("5: Choose a new location")
+        print("6: Start over")
+        
+        choice = input("Enter your choice (5 or 6): ")
+        
+        if choice == '5':
+            return 'geocode_city'
+        elif choice == '6':
+            return 'input_name'
+        else:
+            print(f"{Fore.RED}Invalid option. Please enter 5 or 6.")
+
 def main():
     welcome_message()
     input_name()
     geocode_city()
 
-main()
-
+options_menu()
 
 
 
