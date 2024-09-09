@@ -81,7 +81,12 @@ def geocode_city():
             print(f"Latitude: {latitude}")
             print(f"Longitude: {longitude}")
 
-            return latitude, longitude  
+            return {
+                'lat': latitude,
+                'lon': longitude,
+                'state': state,
+                'country': country
+            }
 
         except requests.exceptions.RequestException as e:
             print(f"{Fore.RED}Error: Unable to connect to the OpenWeather API. Please check your internet connection and API key.")
