@@ -57,28 +57,43 @@ def geocode_city():
     coordinates (latitude and longitude) of that city using the OpenWeather 
     API's geocoding service.
     """
-    input_city = input(f"{Fore.CYAN} Please enter your city:")
-    city = requests.get(f'{GEOCODING_BASE_URL}q={input_city}&limit=1&appid={API_KEY}')
-    
-    if city.status_code != 200:
-        print(f"{Fore.RED}Error: Unable to connect to the OpenWeather API. Please check your internet connection and API key.")
-        return
+    while True:
+        input_city = input(f"{Fore.CYAN} Please enter your city: ")
+        try:
+            city = requests.get(f'{GEOCODING_BASE_URL}q={input_city}&limit=1&appid={API_KEY}')
+            city.raise_for_status()
 
-    city_geo_data = city.json()
+            city_geo_data = city.json()
+
+            if not city_geo_data:
+                print(f"{Fore.RED}Error: City not found. Please check the spelling or try a different city.")
+                continue
+
+            city_geo_data = city.json()[0]
+            city_name = city_geo_data["name"]
+            latitude = city_geo_data["lat"]
+            longitude = city_geo_data["lon"]
+            state = city_geo_data["state"]
+            country = city_geo_data["country"]
+
+            print(f"\n{Fore.GREEN}Your location is {city_name}, {state}, {country}.")
+            print(f"Latitude: {latitude}")
+            print(f"Longitude: {longitude}")
+
+            return city_geo_data    
+
+        except requests.exceptions.RequestException as e:
+            print(f"{Fore.RED}Error: Unable to connect to the OpenWeather API. Please check your internet connection and API key.")
+            print(f"Error details: {e}")
+            continue
+
+    return None
     
-    if not city_geo_data:
-        print(f"{Fore.RED}Error: City not found. Please check the spelling or try a different city.")
-        return
     
-    city_geo_data = city.json()[0]
-    city_name = city_geo_data["name"]
-    latitude = city_geo_data["lat"]
-    longitude = city_geo_data["lon"]
-    state = city_geo_data["state"]
-    country = city_geo_data["country"]
+
     #print(city.json())
     #print(latitude, longitude, country, state)
-    print(f"\nYour location is {city_name}, {state}, {country}.\nLatitude: {latitude}\nLongitude: {longitude}")
+    
 
 welcome_message()
 input_name()
