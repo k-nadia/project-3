@@ -126,9 +126,10 @@ def options_menu():
         if choice == '1':
             return 'current_weather'
         elif choice == '5':
+            print()
             return 'geocode_city'
         elif choice == '6':
-            print(f"\n Restarting WeatherWise application...\n")
+            print(f"\nRestarting WeatherWise application...\n")
             return 'input_name'
         else:
             print(f"{Fore.RED}Invalid option. Please enter 1, 5, or 6.")
