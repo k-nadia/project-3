@@ -89,6 +89,10 @@ def geocode_city():
             continue
 
 def current_weather(lat, lon):
+    """
+    Function to get the current weather of the city chosen by the user.
+    Prints details of main weather, temperature and humidity
+    """
     weather_data = requests.get(f'{CURRENT_AND_FORECAST_BASE_URL}lat={latitude}&lon={longitude}&appid={API_KEY}')
     print(weather_data.json())
 
