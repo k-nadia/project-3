@@ -106,10 +106,21 @@ def options_menu():
 
 def main():
     welcome_message()
-    input_name()
-    geocode_city()
+    while True:
+        input_name()
+        while True:
+            city_geo_data = geocode_city()
+            if city_geo_data:
+                choice = options_menu()
+                
+                if choice == 'geocode_city':
+                    continue
+                elif choice == 'input_name':
+                    break
+            else:
+                print(f"{Fore.RED}Failed to get city data. Please try again.")
 
-options_menu()
+main()
 
 
 
