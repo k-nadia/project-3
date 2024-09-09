@@ -84,6 +84,7 @@ def geocode_city():
             return {
                 'lat': latitude,
                 'lon': longitude,
+                'name': city_name,
                 'state': state,
                 'country': country
             }
@@ -93,7 +94,7 @@ def geocode_city():
             print(f"Error details: {e}")
             continue
 
-def current_weather(lat, lon):
+def current_weather(lat, lon, name):
     """
     Function to get the current weather of the city chosen by the user.
     Prints details of main weather, temperature and humidity
@@ -106,9 +107,10 @@ def current_weather(lat, lon):
         weather = current['weather'][0]['main']
         temp = current['temp']
         humidity = current['humidity']
-        print(f"Weather: {weather}")
-        print(f"Temperature: {temp}°C")
-        print(f"Humidity: {humidity}%")
+        print(f"\n{Fore.GREEN}Here are the current weather stats for {name}:")
+        print(f"\n{Fore.GREEN}Weather: {weather}")
+        print(f"{Fore.GREEN}Temperature: {temp}°C")
+        print(f"{Fore.GREEN}Humidity: {humidity}%")
     else:
         print(f"{Fore.RED} Error: Unable to retrieve weather data.")
 
@@ -143,10 +145,11 @@ def main():
 
                 if choice == 'current_weather':  
                     latitude = city_geo_data["lat"] 
-                    longitude = city_geo_data["lon"]  
-                    current_weather(latitude, longitude)  
+                    longitude = city_geo_data["lon"]
+                    city_name = city_geo_data["name"]
+                    current_weather(latitude, longitude, city_name)  
                 elif choice == 'geocode_city':
-                    continue  
+                    break  
                 elif choice == 'input_name':
                     break  
         else:
