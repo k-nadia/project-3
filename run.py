@@ -87,7 +87,9 @@ def geocode_city():
             print(f"Error details: {e}")
             continue
 
-    return None
+    return latitude, longitude
+
+
 
 def options_menu():
     while True:
@@ -120,6 +122,7 @@ def main():
                     break
             else:
                 print(f"{Fore.RED}Failed to get city data. Please try again.")
+
 
 main()
 
