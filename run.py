@@ -133,6 +133,14 @@ def current_weather(lat, lon, name):
     else:
         print(f"{Fore.RED} Error: Unable to retrieve weather data.")
 
+def weather_alerts(lat, lon, name):
+    """
+    Function to get the weather alerts for the city chosen by the user.
+    Prints details of any active weather alerts or a message if there are no alerts.
+    """
+    weather_data = requests.get(f'{CURRENT_AND_FORECAST_BASE_URL}lat={lat}&lon={lon}&exclude=current,minutely,hourly,daily&units=metric&appid={API_KEY}')
+    weather_info = weather_data.json()
+
 def options_menu():
     while True:
         print(f"\n{Fore.CYAN}Please choose an option:")
