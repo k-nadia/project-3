@@ -161,7 +161,6 @@ def current_weather(lat, lon, name):
         print(f"{Fore.RED} Error: Unable to retrieve weather data.")
 
 
-
 def weather_alerts(lat, lon, name):
     """
     Function to get the weather alerts for the city chosen
@@ -181,9 +180,11 @@ def weather_alerts(lat, lon, name):
             print(f"\n{Fore.RED}Weather Alerts for {name}: ")
             for alert in weather_info['alerts']:
                 print(f"\n{Fore.RED}Alert: {alert['event']}")
+                print(f"{Fore.YELLOW}Sender: {alert.get('sender_name', 'Not specified')}")
+                print(f"{Fore.WHITE}Description: {alert.get('description', 'No description available')}")
         else:
             print(f"\n{Fore.GREEN}"
-                  "Good news! There are no active weather alerts for {name}.")
+                  f"Good news! There are no active weather alerts for {name}.")
     else:
         print(f"{Fore.RED}Error: Unable to retrieve weather alert data.")
 
