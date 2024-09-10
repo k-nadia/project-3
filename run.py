@@ -41,7 +41,8 @@ data = sales.get_all_values()
 
 
 def welcome_message():
-    print(f"{Fore.CYAN}\n W E L C O M E   T O   W E A T H E R W I S E   A P P . . .\n")
+    print(f"{Back.CYAN + Fore.BLACK + Style.BRIGHT}\n  W E L C O M E   T O   W E A T H E R W I S E   A P P . . .  \n")
+    print(f"{Fore.CYAN}************************************************************")
 
 def input_name():
     while True:
@@ -127,7 +128,7 @@ def current_weather(lat, lon, name):
         print(f"{Fore.BLUE}Current Rain (last 1h): {current_rain} mm")
         print(f"{Fore.BLUE}Chance of Rain Today: {daily_rain_chance:.1f}%")
         print(f"{Fore.BLUE}Expected Rain Volume Today: {daily_rain_volume} mm")
-        
+
         print(f"\n{Fore.GREEN}Today's Weather Summary: {daily_summary}")
     else:
         print(f"{Fore.RED} Error: Unable to retrieve weather data.")
