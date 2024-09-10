@@ -99,18 +99,26 @@ def current_weather(lat, lon, name):
     Function to get the current weather of the city chosen by the user.
     Prints details of main weather, temperature and humidity
     """
-    weather_data = requests.get(f'{CURRENT_AND_FORECAST_BASE_URL}lat={lat}&lon={lon}&exclude=minutely,hourly,daily,alerts&units=metric&appid={API_KEY}')
+    weather_data = requests.get(f'{CURRENT_AND_FORECAST_BASE_URL}lat={lat}&lon={lon}&exclude=minutely,hourly&units=metric&appid={API_KEY}')
     weather_info = weather_data.json()
 
     if weather_data.status_code == 200:
         current = weather_info['current']
+        daily = weather_info['daily'][0]
+
         weather = current['weather'][0]['main']
         temp = current['temp']
         humidity = current['humidity']
+        feels_like = current['feels_like']
+        wind_speed = current['wind_speed']
+        daily_summary = daily.get('summary', 'No summary available')
         print(f"\n{Fore.GREEN}Here are the current weather stats for {name}:")
         print(f"\n{Fore.GREEN}Weather: {weather}")
         print(f"{Fore.GREEN}Temperature: {temp}°C")
         print(f"{Fore.GREEN}Humidity: {humidity}%")
+        print(f"{Fore.GREEN}Humidity: {humidity}%")
+        print(f"{Fore.GREEN}Wind Speed: {wind_speed} m/s")
+        print(f"\n{Fore.GREEN}Today's Weather Summary: {daily_summary}")
     else:
         print(f"{Fore.RED} Error: Unable to retrieve weather data.")
 
