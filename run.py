@@ -137,6 +137,7 @@ def options_menu():
     while True:
         print(f"\n{Fore.CYAN}Please choose an option:")
         print("1: View the current weather")
+        print("1: View weather alerts")
         print("5: Choose a new location")
         print("6: Start over")
         
@@ -144,6 +145,9 @@ def options_menu():
         
         if choice == '1':
             return 'current_weather'
+        elif choice == '2':
+            print()
+            return 'weather_alerts'
         elif choice == '5':
             print()
             return 'geocode_city'
@@ -151,7 +155,7 @@ def options_menu():
             print(f"\nRestarting WeatherWise application...\n")
             return 'input_name'
         else:
-            print(f"{Fore.RED}Invalid option. Please enter 1, 5, or 6.")
+            print(f"{Fore.RED}Invalid option. Please enter 1, 2, 5, or 6.")
 
 def main():
     welcome_message()
