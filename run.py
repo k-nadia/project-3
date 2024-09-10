@@ -1,13 +1,13 @@
 import requests
+from pprint import pprint
 from datetime import datetime
 import gspread
 from google.oauth2.service_account import Credentials
 import colorama
 from colorama import Fore, Back, Style
 colorama.init(autoreset=True)
-from pprint import pprint
 
-""" 
+"""
 API Credentials
 """
 API_KEY = open('api_key', 'r').read()
@@ -16,14 +16,19 @@ API_KEY = open('api_key', 'r').read()
 OpenWeather API URLS
 """
 GEOCODING_BASE_URL = 'http://api.openweathermap.org/geo/1.0/direct?'
-# http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}
-CURRENT_AND_FORECAST_BASE_URL = 'https://api.openweathermap.org/data/3.0/onecall?'
-# https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
-PAST_WEATHER_BASE_URL = 'https://api.openweathermap.org/data/3.0/onecall/timemachine?'
-# https://api.openweathermap.org/data/3.0/onecall/timemachine?lat={lat}&lon={lon}&dt={time}&appid={API key}
+# http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},
+# {country code}&limit={limit}&appid={API key}
+CURRENT_AND_FORECAST_BASE_URL = 'https://api.openweathermap.org/'
+'data/3.0/onecall?'
+# https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}
+# &exclude={part}&appid={API key}
+PAST_WEATHER_BASE_URL = 'https://api.openweathermap.org/'
+'data/3.0/onecall/timemachine?'
+# https://api.openweathermap.org/data/3.0/onecall/timemachine?lat={lat}&lon=
+# {lon}&dt={time}&appid={API key}
 
-""" 
-Google Sheets 
+"""
+Google Sheets
 """
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -41,34 +46,45 @@ data = sales.get_all_values()
 
 
 def welcome_message():
-    print(f"{Back.CYAN + Fore.BLACK + Style.BRIGHT}\n  W E L C O M E   T O   W E A T H E R W I S E   A P P . . .  \n")
-    print(f"{Fore.CYAN}************************************************************")
+    print(
+        f"{Back.CYAN + Fore.BLACK + Style.BRIGHT}\n"
+        "  W E L C O M E   T O   W E A T H E R W I S E   A P P . . .  \n"
+        )
+    print(
+        f"{Fore.CYAN}*******************************"
+        "*****************************"
+        )
+
 
 def input_name():
     while True:
         name = input(f"{Fore.CYAN} Please enter your name: ")
         if name == "" or name == " ":
-            print(f"{Fore.MAGENTA} This is not a valid name, please try again...\n")
+            print(f"{Fore.MAGENTA} This is not a valid name,"
+                  " please try again...\n")
             continue
         else:
             break
 
+
 def geocode_city():
     """
-    Prompts the user to enter a city name and retrieves the geographical 
-    coordinates (latitude and longitude) of that city using the OpenWeather 
+    Prompts the user to enter a city name and retrieves the geographical
+    coordinates (latitude and longitude) of that city using the OpenWeather
     API's geocoding service.
     """
     while True:
         input_city = input(f"{Fore.CYAN} Please enter your city: ")
         try:
-            city = requests.get(f'{GEOCODING_BASE_URL}q={input_city}&limit=1&appid={API_KEY}')
+            city = requests.get(f'{GEOCODING_BASE_URL}q={input_city}'
+                                '&limit=1&appid={API_KEY}')
             city.raise_for_status()
 
             city_geo_data = city.json()
 
             if not city_geo_data:
-                print(f"{Fore.RED}Error: City not found. Please check the spelling or try a different city.")
+                print(f"{Fore.RED}Error: City not found."
+                      "Please check the spelling or try a different city.")
                 continue
 
             city_geo_data = city.json()[0]
@@ -78,7 +94,8 @@ def geocode_city():
             state = city_geo_data["state"]
             country = city_geo_data["country"]
 
-            print(f"\n{Fore.GREEN}Your location is {city_name}, {state}, {country}.")
+            print(f"\n{Fore.GREEN}Your location is {city_name},"
+                  " {state}, {country}.")
             print(f"Latitude: {latitude}")
             print(f"Longitude: {longitude}")
 
@@ -91,16 +108,23 @@ def geocode_city():
             }
 
         except requests.exceptions.RequestException as e:
-            print(f"{Fore.RED}Error: Unable to connect to the OpenWeather API. Please check your internet connection and API key.")
+            print(
+                f"{Fore.RED}"
+                "Error: Unable to connect to the OpenWeather API."
+                "Please check your internet connection and API key."
+                )
             print(f"Error details: {e}")
             continue
+
 
 def current_weather(lat, lon, name):
     """
     Function to get the current weather of the city chosen by the user.
     Prints details of main weather, temperature and humidity
     """
-    weather_data = requests.get(f'{CURRENT_AND_FORECAST_BASE_URL}lat={lat}&lon={lon}&exclude=minutely,hourly&units=metric&appid={API_KEY}')
+    weather_data = requests.get(f'{CURRENT_AND_FORECAST_BASE_URL}'
+                                'lat={lat}&lon={lon}&exclude=minutely,hourly'
+                                '&units=metric&appid={API_KEY}')
     weather_info = weather_data.json()
 
     if weather_data.status_code == 200:
@@ -113,9 +137,9 @@ def current_weather(lat, lon, name):
         feels_like = current['feels_like']
         wind_speed = current['wind_speed']
         daily_summary = daily.get('summary', 'No summary available')
-        current_rain = current.get('rain', {}).get('1h', 0)  
-        daily_rain_chance = daily.get('pop', 0) * 100  
-        daily_rain_volume = daily.get('rain', 0)  
+        current_rain = current.get('rain', {}).get('1h', 0)
+        daily_rain_chance = daily.get('pop', 0) * 100
+        daily_rain_volume = daily.get('rain', 0)
 
         print(f"\n{Fore.GREEN}Here are the current weather stats for {name}:")
         print(f"\n{Fore.GREEN}Weather: {weather}")
@@ -133,33 +157,38 @@ def current_weather(lat, lon, name):
     else:
         print(f"{Fore.RED} Error: Unable to retrieve weather data.")
 
+
 def weather_alerts(lat, lon, name):
     """
-    Function to get the weather alerts for the city chosen by the user.
-    Prints details of any active weather alerts or a message if there are no alerts.
+    Function to get the weather alerts for the city chosen
+    by the user. Prints details of any active weather alerts
+    or a message if there are no alerts.
     """
-    weather_data = requests.get(f'{CURRENT_AND_FORECAST_BASE_URL}lat={lat}&lon={lon}&exclude=current,minutely,hourly,daily&units=metric&appid={API_KEY}')
+    weather_data = requests.get(f'{CURRENT_AND_FORECAST_BASE_URL}'
+                                'lat={lat}&lon={lon}&exclude=current'
+                                ',minutely,hourly,daily&'
+                                'units=metric&appid={API_KEY}')
     weather_info = weather_data.json()
 
     if weather_data.status_code == 200:
         if 'alerts' in weather_info:
-            print(f"\n{Fore.RED}Weather Alerts for {name}:")
+            print(f"\n{Fore.RED}Weather Alerts for {name}: ")
             for alert in weather_info['alerts']:
                 print(f"\n{Fore.RED}Alert: {alert['event']}")
-
         else:
-            print(f"\n{Fore.GREEN}Good news! There are no active weather alerts for {name}.")
+            print(f"\n{Fore.GREEN}"
+                  "Good news! There are no active weather alerts for {name}.")
     else:
         print(f"{Fore.RED}Error: Unable to retrieve weather alert data.")
 
+
 def options_menu():
     while True:
-        print(f"\n{Fore.CYAN}Please choose an option:")
+        print(f"\n{Fore.CYAN}Please choose an option: ")
         print("1: View the current weather")
         print("2: View weather alerts")
         print("5: Choose a new location")
         print("6: Start over")
-        
         choice = input("Enter your choice (1, 2, 5 or 6): ")
         
         if choice == '1':
@@ -176,20 +205,21 @@ def options_menu():
         else:
             print(f"{Fore.RED}Invalid option. Please enter 1, 2, 5, or 6.")
 
+
 def main():
     welcome_message()
     
     while True:
-        name = input_name()  
+        name = input_name()
 
         while True:
-            city_geo_data = geocode_city() 
+            city_geo_data = geocode_city()
             if city_geo_data:
                 while True:
-                    choice = options_menu()  
+                    choice = options_menu()
 
                     if choice in ['current_weather', 'weather_alerts']:
-                        latitude = city_geo_data["lat"] 
+                        latitude = city_geo_data["lat"]
                         longitude = city_geo_data["lon"]
                         city_name = city_geo_data["name"]
                         
@@ -198,27 +228,17 @@ def main():
                         elif choice == 'weather_alerts':
                             weather_alerts(latitude, longitude, city_name)
                     elif choice == 'geocode_city':
-                        break  
+                        break
                     elif choice == 'input_name':
-                        break  
-                
+                        break
                 if choice == 'input_name':
-                    break  
+                    break
             else:
                 print(f"{Fore.RED}Failed to get city data. Please try again.")
-            
             if choice == 'input_name':
-                break  
+                break
+
 
 main()
-
-
-
-
-
-
-
-
-
 
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
