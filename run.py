@@ -188,11 +188,15 @@ def main():
                 while True:
                     choice = options_menu()  
 
-                    if choice == 'current_weather':  
+                    if choice in ['current_weather', 'weather_alerts']:
                         latitude = city_geo_data["lat"] 
                         longitude = city_geo_data["lon"]
                         city_name = city_geo_data["name"]
-                        current_weather(latitude, longitude, city_name)  
+                        
+                        if choice == 'current_weather':
+                            current_weather(latitude, longitude, city_name)
+                        elif choice == 'weather_alerts':
+                            weather_alerts(latitude, longitude, city_name)
                     elif choice == 'geocode_city':
                         break  
                     elif choice == 'input_name':
@@ -205,7 +209,6 @@ def main():
             
             if choice == 'input_name':
                 break  
-
 
 main()
 
