@@ -94,7 +94,7 @@ def geocode_city():
             country = city_geo_data["country"]
 
             print(f"\n{Fore.GREEN}Your location is {city_name},"
-                  " {state}, {country}.")
+                  f" {state}, {country}.")
             print(f"Latitude: {latitude}")
             print(f"Longitude: {longitude}")
 
