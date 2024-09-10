@@ -1,1 +1,4 @@
-# Your requirements go here
+requests
+gspread
+google-auth
+colorama
