@@ -141,6 +141,17 @@ def weather_alerts(lat, lon, name):
     weather_data = requests.get(f'{CURRENT_AND_FORECAST_BASE_URL}lat={lat}&lon={lon}&exclude=current,minutely,hourly,daily&units=metric&appid={API_KEY}')
     weather_info = weather_data.json()
 
+    if weather_data.status_code == 200:
+        if 'alerts' in weather_info:
+            print(f"\n{Fore.RED}Weather Alerts for {name}:")
+            for alert in weather_info['alerts']:
+                print(f"\n{Fore.RED}Alert: {alert['event']}")
+
+        else:
+            print(f"\n{Fore.GREEN}Good news! There are no active weather alerts for {name}.")
+    else:
+        print(f"{Fore.RED}Error: Unable to retrieve weather alert data.")
+
 def options_menu():
     while True:
         print(f"\n{Fore.CYAN}Please choose an option:")
