@@ -18,8 +18,7 @@ OpenWeather API URLS
 GEOCODING_BASE_URL = 'http://api.openweathermap.org/geo/1.0/direct?'
 # http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},
 # {country code}&limit={limit}&appid={API key}
-CURRENT_AND_FORECAST_BASE_URL = 'https://api.openweathermap.org/'
-'data/3.0/onecall?'
+CURRENT_AND_FORECAST_BASE_URL = 'https://api.openweathermap.org/data/3.0/onecall?'
 # https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}
 # &exclude={part}&appid={API key}
 PAST_WEATHER_BASE_URL = 'https://api.openweathermap.org/'
@@ -122,9 +121,14 @@ def current_weather(lat, lon, name):
     Function to get the current weather of the city chosen by the user.
     Prints details of main weather, temperature and humidity
     """
-    weather_data = requests.get(f'{CURRENT_AND_FORECAST_BASE_URL}'
-                                f'lat={lat}&lon={lon}&exclude=minutely,hourly'
-                                f'&units=metric&appid={API_KEY}')
+    weather_data = requests.get(
+        f'{CURRENT_AND_FORECAST_BASE_URL}'
+        f'lat={lat}&'
+        f'lon={lon}&'
+        f'exclude=minutely,hourly&'
+        f'units=metric&'
+        f'appid={API_KEY}'
+    )
     weather_info = weather_data.json()
 
     if weather_data.status_code == 200:
@@ -145,7 +149,6 @@ def current_weather(lat, lon, name):
         print(f"\n{Fore.GREEN}Weather: {weather}")
         print(f"{Fore.GREEN}Temperature: {temp}°C")
         print(f"{Fore.GREEN}Humidity: {humidity}%")
-        print(f"{Fore.GREEN}Humidity: {humidity}%")
         print(f"{Fore.GREEN}Wind Speed: {wind_speed} m/s")
 
         print(f"\n{Fore.BLUE}Rain Information:")
@@ -158,16 +161,19 @@ def current_weather(lat, lon, name):
         print(f"{Fore.RED} Error: Unable to retrieve weather data.")
 
 
+
 def weather_alerts(lat, lon, name):
     """
     Function to get the weather alerts for the city chosen
     by the user. Prints details of any active weather alerts
     or a message if there are no alerts.
     """
-    weather_data = requests.get(f'{CURRENT_AND_FORECAST_BASE_URL}'
-                                f'lat={lat}&lon={lon}&exclude=current'
-                                f',minutely,hourly,daily&'
-                                f'units=metric&appid={API_KEY}')
+    weather_data = requests.get(
+        f'{CURRENT_AND_FORECAST_BASE_URL}' +
+        f'lat={lat}&lon={lon}&exclude=current' +
+        f',minutely,hourly,daily&' +
+        f'units=metric&appid={API_KEY}'
+    )
     weather_info = weather_data.json()
 
     if weather_data.status_code == 200:
