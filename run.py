@@ -112,12 +112,22 @@ def current_weather(lat, lon, name):
         feels_like = current['feels_like']
         wind_speed = current['wind_speed']
         daily_summary = daily.get('summary', 'No summary available')
+        current_rain = current.get('rain', {}).get('1h', 0)  
+        daily_rain_chance = daily.get('pop', 0) * 100  
+        daily_rain_volume = daily.get('rain', 0)  
+
         print(f"\n{Fore.GREEN}Here are the current weather stats for {name}:")
         print(f"\n{Fore.GREEN}Weather: {weather}")
         print(f"{Fore.GREEN}Temperature: {temp}°C")
         print(f"{Fore.GREEN}Humidity: {humidity}%")
         print(f"{Fore.GREEN}Humidity: {humidity}%")
         print(f"{Fore.GREEN}Wind Speed: {wind_speed} m/s")
+
+        print(f"\n{Fore.BLUE}Rain Information:")
+        print(f"{Fore.BLUE}Current Rain (last 1h): {current_rain} mm")
+        print(f"{Fore.BLUE}Chance of Rain Today: {daily_rain_chance:.1f}%")
+        print(f"{Fore.BLUE}Expected Rain Volume Today: {daily_rain_volume} mm")
+        
         print(f"\n{Fore.GREEN}Today's Weather Summary: {daily_summary}")
     else:
         print(f"{Fore.RED} Error: Unable to retrieve weather data.")
