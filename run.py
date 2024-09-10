@@ -77,7 +77,7 @@ def geocode_city():
         input_city = input(f"{Fore.CYAN} Please enter your city: ")
         try:
             city = requests.get(f'{GEOCODING_BASE_URL}q={input_city}'
-                                '&limit=1&appid={API_KEY}')
+                                f'&limit=1&appid={API_KEY}')
             city.raise_for_status()
 
             city_geo_data = city.json()
@@ -110,8 +110,8 @@ def geocode_city():
         except requests.exceptions.RequestException as e:
             print(
                 f"{Fore.RED}"
-                "Error: Unable to connect to the OpenWeather API."
-                "Please check your internet connection and API key."
+                f"Error: Unable to connect to the OpenWeather API."
+                f"Please check your internet connection and API key."
                 )
             print(f"Error details: {e}")
             continue
@@ -123,8 +123,8 @@ def current_weather(lat, lon, name):
     Prints details of main weather, temperature and humidity
     """
     weather_data = requests.get(f'{CURRENT_AND_FORECAST_BASE_URL}'
-                                'lat={lat}&lon={lon}&exclude=minutely,hourly'
-                                '&units=metric&appid={API_KEY}')
+                                f'lat={lat}&lon={lon}&exclude=minutely,hourly'
+                                f'&units=metric&appid={API_KEY}')
     weather_info = weather_data.json()
 
     if weather_data.status_code == 200:
@@ -165,9 +165,9 @@ def weather_alerts(lat, lon, name):
     or a message if there are no alerts.
     """
     weather_data = requests.get(f'{CURRENT_AND_FORECAST_BASE_URL}'
-                                'lat={lat}&lon={lon}&exclude=current'
-                                ',minutely,hourly,daily&'
-                                'units=metric&appid={API_KEY}')
+                                f'lat={lat}&lon={lon}&exclude=current'
+                                f',minutely,hourly,daily&'
+                                f'units=metric&appid={API_KEY}')
     weather_info = weather_data.json()
 
     if weather_data.status_code == 200:
