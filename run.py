@@ -156,11 +156,11 @@ def options_menu():
     while True:
         print(f"\n{Fore.CYAN}Please choose an option:")
         print("1: View the current weather")
-        print("1: View weather alerts")
+        print("2: View weather alerts")
         print("5: Choose a new location")
         print("6: Start over")
         
-        choice = input("Enter your choice (1, 5 or 6): ")
+        choice = input("Enter your choice (1, 2, 5 or 6): ")
         
         if choice == '1':
             return 'current_weather'
