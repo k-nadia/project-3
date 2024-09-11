@@ -195,12 +195,13 @@ def weather_alerts(lat, lon, name):
         print(f"{Fore.RED}Error: Unable to retrieve weather alert data.")
 
 
-def forecast_weather(lat, lon, name):
+def forecast_weather():
     """
     Function to get the daily weather forecast for the date
     chosen by the user.
     """
-
+    print(f"{Fore.CYAN}Enter a date to view the weather forecast "
+          f"up to 8 days from today (MM/DD/YYYY):")
 
 def options_menu():
     while True:
@@ -259,5 +260,6 @@ def main():
                 break
 
 
-main()
+#main()
+forecast_weather()
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
