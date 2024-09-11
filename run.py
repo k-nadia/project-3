@@ -229,6 +229,20 @@ def weather_forecast():
             )
             weather_info = weather_data.json()
 
+            if weather_data.status_code == 200:
+                current = weather_info['current']
+                daily = weather_info['daily'][0]
+
+            weather = current['weather'][0]['main']
+            temp = current['temp']
+            humidity = current['humidity']
+            feels_like = current['feels_like']
+            wind_speed = current['wind_speed']
+            daily_summary = daily.get('summary', 'No summary available')
+            current_rain = current.get('rain', {}).get('1h', 0)
+            daily_rain_chance = daily.get('pop', 0) * 100
+            daily_rain_volume = daily.get('rain', 0)
+
         except ValueError:
             print(f"{Fore.RED}Invalid date format. Please use DD/MM/YYYY.")
 
