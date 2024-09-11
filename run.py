@@ -208,6 +208,7 @@ def options_menu():
         print(f"\n{Fore.CYAN}Please choose an option: ")
         print("1: View the current weather")
         print("2: View weather alerts")
+        print("3: View daily weather forecast")
         print("5: Choose a new location")
         print("6: Start over")
         choice = input("Enter your choice (1, 2, 5 or 6): ")
@@ -217,6 +218,9 @@ def options_menu():
         elif choice == '2':
             print()
             return 'weather_alerts'
+        elif choice == '3':
+            return 'weather_forecast'
+            print()
         elif choice == '5':
             print()
             return 'geocode_city'
@@ -224,7 +228,7 @@ def options_menu():
             print(f"\nRestarting WeatherWise application...\n")
             return 'input_name'
         else:
-            print(f"{Fore.RED}Invalid option. Please enter 1, 2, 5, or 6.")
+            print(f"{Fore.RED}Invalid option. Please enter 1, 2, 3, 5, or 6.")
 
 
 def main():
@@ -261,5 +265,6 @@ def main():
 
 
 #main()
+options_menu()
 forecast_weather()
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
