@@ -1,3 +1,5 @@
+import os
+from dotenv import load_dotenv
 import requests
 from pprint import pprint
 from datetime import datetime
@@ -8,10 +10,10 @@ from colorama import Fore, Back, Style
 colorama.init(autoreset=True)
 
 """
-API Credentials
+API Credentials - loaded via hidden file
 """
-API_KEY = open('api_key', 'r').read()
-
+load_dotenv()
+api_key = os.getenv("API_KEY")
 """
 OpenWeather API URLS
 """
