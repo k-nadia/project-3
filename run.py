@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 import requests
 from pprint import pprint
-from datetime import datetime
+from datetime import datetime, timedelta
 import gspread
 from google.oauth2.service_account import Credentials
 import colorama
@@ -195,13 +195,30 @@ def weather_alerts(lat, lon, name):
         print(f"{Fore.RED}Error: Unable to retrieve weather alert data.")
 
 
-def forecast_weather(lat, lon, name):
+def weather_forecast():
     """
-    Function to get the daily weather forecast for the date
-    chosen by the user.
+    Function to get the weather forecast for a specific date chosen by the
+    user up to 8 days into the future. It retrieves data for the requested
+    date and prints it.
     """
     print(f"{Fore.CYAN}Enter a date to view the weather forecast "
-          f"up to 8 days from today (MM/DD/YYYY):")
+          f"up to 8 days from today (DD/MM/YYYY):")
+
+    while True:
+        date_input = input("Enter the date: ")
+
+        try:
+            forecast_date = datetime.strptime(date_input, '%d/%m/%Y')
+            today = datetime.now()
+            max_date = datetime.now() + timedelta(days=8)
+
+            if forecast_date < today or forecast_date > max_date:
+                print(f"{Fore.RED}Error: Please enter a date within "
+                      f"8 days from today and not in the past.")
+                continue
+        except ValueError:
+            print(f"{Fore.RED}Invalid date format. Please use DD/MM/YYYY.")
+
 
 def options_menu():
     while True:
@@ -266,6 +283,7 @@ def main():
                 break
 
 
-main()
+#main()
+weather_forecast()
 
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
