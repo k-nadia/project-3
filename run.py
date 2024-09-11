@@ -219,6 +219,16 @@ def weather_forecast():
             
             days_offset = (forecast_date - today).days
 
+            weather_data = requests.get(
+            f'{CURRENT_AND_FORECAST_BASE_URL}'
+            f'lat={lat}&'
+            f'lon={lon}&'
+            f'exclude=current,minutely,hourly,alerts&'
+            f'units=metric&'
+            f'appid={api_key}'
+            )
+            weather_info = weather_data.json()
+
         except ValueError:
             print(f"{Fore.RED}Invalid date format. Please use DD/MM/YYYY.")
 
