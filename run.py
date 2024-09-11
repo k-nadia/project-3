@@ -20,7 +20,9 @@ OpenWeather API URLS
 GEOCODING_BASE_URL = 'http://api.openweathermap.org/geo/1.0/direct?'
 # http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},
 # {country code}&limit={limit}&appid={api key}
-CURRENT_AND_FORECAST_BASE_URL = 'https://api.openweathermap.org/data/3.0/onecall?'
+CURRENT_AND_FORECAST_BASE_URL = (
+    'https://api.openweathermap.org/data/3.0/onecall?'
+)
 # https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}
 # &exclude={part}&appid={api key}
 PAST_WEATHER_BASE_URL = 'https://api.openweathermap.org/'
@@ -182,8 +184,10 @@ def weather_alerts(lat, lon, name):
             print(f"\n{Fore.RED}Weather Alerts for {name}: ")
             for alert in weather_info['alerts']:
                 print(f"\n{Fore.RED}Alert: {alert['event']}")
-                print(f"{Fore.YELLOW}Sender: {alert.get('sender_name', 'Not specified')}")
-                print(f"{Fore.WHITE}Description: {alert.get('description', 'No description available')}")
+                print(f"{Fore.YELLOW}Sender: "
+                      f"{alert.get('sender_name', 'Not specified')}")
+                print(f"{Fore.WHITE}Description: ", end="")
+                print(alert.get('description', 'No description available'))
         else:
             print(f"\n{Fore.GREEN}"
                   f"Good news! There are no active weather alerts for {name}.")
@@ -246,6 +250,7 @@ def main():
                 print(f"{Fore.RED}Failed to get city data. Please try again.")
             if choice == 'input_name':
                 break
+
 
 main()
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
