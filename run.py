@@ -195,7 +195,7 @@ def weather_alerts(lat, lon, name):
         print(f"{Fore.RED}Error: Unable to retrieve weather alert data.")
 
 
-def weather_forecast():
+def forecast_weather(lat, lon, name):
     """
     Function to get the weather forecast for a specific date chosen by the
     user up to 8 days into the future. It retrieves data for the requested
@@ -203,6 +203,16 @@ def weather_forecast():
     """
     print(f"{Fore.CYAN}Enter a date to view the weather forecast "
           f"up to 8 days from today (DD/MM/YYYY):")
+
+    weather_data = requests.get(
+        f'{CURRENT_AND_FORECAST_BASE_URL}'
+        f'lat={lat}&'
+        f'lon={lon}&'
+        f'exclude=current,minutely,hourly,alerts&'
+        f'units=metric&'
+        f'appid={api_key}'
+    )
+    weather_info = weather_data.json()
 
     while True:
         date_input = input("Enter the date: ")
@@ -219,27 +229,16 @@ def weather_forecast():
             
             days_offset = (forecast_date - today).days
 
-            weather_data = requests.get(
-            f'{CURRENT_AND_FORECAST_BASE_URL}'
-            f'lat={lat}&'
-            f'lon={lon}&'
-            f'exclude=current,minutely,hourly,alerts&'
-            f'units=metric&'
-            f'appid={api_key}'
-            )
-            weather_info = weather_data.json()
-
             if weather_data.status_code == 200:
-                current = weather_info['current']
+                #current = weather_info['current']
                 daily = weather_info['daily'][0]
 
-                weather = current['weather'][0]['main']
-                temp = current['temp']
-                humidity = current['humidity']
-                feels_like = current['feels_like']
-                wind_speed = current['wind_speed']
+                weather = daily['weather'][0]['main']
+                temp_min = daily['temp']['min']
+                temp_max = daily['temp']['max']
+                humidity = daily['humidity']
+                wind_speed = daily['wind_speed']
                 daily_summary = daily.get('summary', 'No summary available')
-                current_rain = current.get('rain', {}).get('1h', 0)
                 daily_rain_chance = daily.get('pop', 0) * 100
                 daily_rain_volume = daily.get('rain', 0)
                 
@@ -326,7 +325,7 @@ def main():
                 break
 
 
-#main()
-weather_forecast()
+main()
+
 
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
