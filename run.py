@@ -195,6 +195,13 @@ def weather_alerts(lat, lon, name):
         print(f"{Fore.RED}Error: Unable to retrieve weather alert data.")
 
 
+def forecast_weather(lat, lon, name):
+    """
+    Function to get the daily weather forecast for the date
+    chosen by the user.
+    """
+
+
 def options_menu():
     while True:
         print(f"\n{Fore.CYAN}Please choose an option: ")
