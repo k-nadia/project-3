@@ -247,7 +247,5 @@ def main():
             if choice == 'input_name':
                 break
 
-
 main()
-
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
