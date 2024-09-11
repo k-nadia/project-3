@@ -48,7 +48,7 @@ data = sales.get_all_values()
 
 def welcome_message():
     print(
-        f"{Back.CYAN + Fore.BLACK + Style.BRIGHT}\n"
+        f"{Fore.CYAN + Style.BRIGHT}\n"
         "  W E L C O M E   T O   W E A T H E R W I S E   A P P . . .  \n"
         )
     print(
