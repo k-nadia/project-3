@@ -216,6 +216,9 @@ def weather_forecast():
                 print(f"{Fore.RED}Error: Please enter a date within "
                       f"8 days from today and not in the past.")
                 continue
+            
+            days_offset = (forecast_date - today).days
+
         except ValueError:
             print(f"{Fore.RED}Invalid date format. Please use DD/MM/YYYY.")
 
