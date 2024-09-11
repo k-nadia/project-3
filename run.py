@@ -233,15 +233,31 @@ def weather_forecast():
                 current = weather_info['current']
                 daily = weather_info['daily'][0]
 
-            weather = current['weather'][0]['main']
-            temp = current['temp']
-            humidity = current['humidity']
-            feels_like = current['feels_like']
-            wind_speed = current['wind_speed']
-            daily_summary = daily.get('summary', 'No summary available')
-            current_rain = current.get('rain', {}).get('1h', 0)
-            daily_rain_chance = daily.get('pop', 0) * 100
-            daily_rain_volume = daily.get('rain', 0)
+                weather = current['weather'][0]['main']
+                temp = current['temp']
+                humidity = current['humidity']
+                feels_like = current['feels_like']
+                wind_speed = current['wind_speed']
+                daily_summary = daily.get('summary', 'No summary available')
+                current_rain = current.get('rain', {}).get('1h', 0)
+                daily_rain_chance = daily.get('pop', 0) * 100
+                daily_rain_volume = daily.get('rain', 0)
+                
+                print(f"\n{Fore.GREEN}Weather forecast for {name} on "
+                      f"{forecast_date.strftime('%A, %B %d %Y')}:")
+                print(f"\n{Fore.GREEN}Weather: {weather}")
+                print(f"{Fore.GREEN}Temperature: Min {temp_min}°C, Max {temp_max}°C")
+                print(f"{Fore.GREEN}Humidity: {humidity}%")
+                print(f"{Fore.GREEN}Wind Speed: {wind_speed} m/s")
+
+                print(f"\n{Fore.BLUE}Rain Information:")
+                print(f"{Fore.BLUE}Chance of Rain: {daily_rain_chance:.1f}%")
+                print(f"{Fore.BLUE}Expected Rain Volume: {daily_rain_volume} mm")
+
+                print(f"\n{Fore.GREEN}Forecast Summary: {daily_summary}")
+            else:
+                print(f"{Fore.RED} Error: Unable to retrieve weather forecast data.")
+            break
 
         except ValueError:
             print(f"{Fore.RED}Invalid date format. Please use DD/MM/YYYY.")
