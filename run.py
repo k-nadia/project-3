@@ -189,7 +189,7 @@ def weather_alerts(lat, lon, name):
                 print(f"{Fore.WHITE}Description: ", end="")
                 print(alert.get('description', 'No description available'))
         else:
-            print(f"\n{Fore.GREEN}"
+            print(f"{Fore.GREEN}"
                   f"Good news! There are no active weather alerts for {name}.")
     else:
         print(f"{Fore.RED}Error: Unable to retrieve weather alert data.")
