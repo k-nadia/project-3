@@ -195,7 +195,7 @@ def weather_alerts(lat, lon, name):
         print(f"{Fore.RED}Error: Unable to retrieve weather alert data.")
 
 
-def forecast_weather():
+def forecast_weather(lat, lon, name):
     """
     Function to get the daily weather forecast for the date
     chosen by the user.
@@ -211,7 +211,7 @@ def options_menu():
         print("3: View daily weather forecast")
         print("5: Choose a new location")
         print("6: Start over")
-        choice = input("Enter your choice (1, 2, 5 or 6): ")
+        choice = input("Enter your choice (1, 2, 3, 5 or 6): ")
         
         if choice == '1':
             return 'current_weather'
@@ -219,8 +219,8 @@ def options_menu():
             print()
             return 'weather_alerts'
         elif choice == '3':
-            return 'weather_forecast'
             print()
+            return 'forecast_weather'
         elif choice == '5':
             print()
             return 'geocode_city'
@@ -243,7 +243,7 @@ def main():
                 while True:
                     choice = options_menu()
 
-                    if choice in ['current_weather', 'weather_alerts']:
+                    if choice in ['current_weather', 'weather_alerts', 'forecast_weather']:
                         latitude = city_geo_data["lat"]
                         longitude = city_geo_data["lon"]
                         city_name = city_geo_data["name"]
@@ -252,6 +252,8 @@ def main():
                             current_weather(latitude, longitude, city_name)
                         elif choice == 'weather_alerts':
                             weather_alerts(latitude, longitude, city_name)
+                        elif choice == 'forecast_weather':
+                            forecast_weather(latitude, longitude, city_name)
                     elif choice == 'geocode_city':
                         break
                     elif choice == 'input_name':
@@ -264,7 +266,6 @@ def main():
                 break
 
 
-#main()
-options_menu()
-forecast_weather()
+main()
+
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
