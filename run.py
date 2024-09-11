@@ -19,14 +19,14 @@ OpenWeather API URLS
 """
 GEOCODING_BASE_URL = 'http://api.openweathermap.org/geo/1.0/direct?'
 # http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},
-# {country code}&limit={limit}&appid={API key}
+# {country code}&limit={limit}&appid={api key}
 CURRENT_AND_FORECAST_BASE_URL = 'https://api.openweathermap.org/data/3.0/onecall?'
 # https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}
-# &exclude={part}&appid={API key}
+# &exclude={part}&appid={api key}
 PAST_WEATHER_BASE_URL = 'https://api.openweathermap.org/'
 'data/3.0/onecall/timemachine?'
 # https://api.openweathermap.org/data/3.0/onecall/timemachine?lat={lat}&lon=
-# {lon}&dt={time}&appid={API key}
+# {lon}&dt={time}&appid={api key}
 
 """
 Google Sheets
@@ -78,7 +78,7 @@ def geocode_city():
         input_city = input(f"{Fore.CYAN} Please enter your city: ")
         try:
             city = requests.get(f'{GEOCODING_BASE_URL}q={input_city}'
-                                f'&limit=1&appid={API_KEY}')
+                                f'&limit=1&appid={api_key}')
             city.raise_for_status()
 
             city_geo_data = city.json()
@@ -129,7 +129,7 @@ def current_weather(lat, lon, name):
         f'lon={lon}&'
         f'exclude=minutely,hourly&'
         f'units=metric&'
-        f'appid={API_KEY}'
+        f'appid={api_key}'
     )
     weather_info = weather_data.json()
 
@@ -173,7 +173,7 @@ def weather_alerts(lat, lon, name):
         f'{CURRENT_AND_FORECAST_BASE_URL}' +
         f'lat={lat}&lon={lon}&exclude=current' +
         f',minutely,hourly,daily&' +
-        f'units=metric&appid={API_KEY}'
+        f'units=metric&appid={api_key}'
     )
     weather_info = weather_data.json()
 
