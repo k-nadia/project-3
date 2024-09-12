@@ -1,10 +1,7 @@
 import os
 from dotenv import load_dotenv
 import requests
-from pprint import pprint
 from datetime import datetime, timedelta
-import gspread
-from google.oauth2.service_account import Credentials
 import colorama
 from colorama import Fore, Back, Style
 colorama.init(autoreset=True)
@@ -29,24 +26,6 @@ PAST_WEATHER_BASE_URL = 'https://api.openweathermap.org/'
 'data/3.0/onecall/timemachine?'
 # https://api.openweathermap.org/data/3.0/onecall/timemachine?lat={lat}&lon=
 # {lon}&dt={time}&appid={api key}
-
-"""
-Google Sheets
-"""
-SCOPE = [
-    "https://www.googleapis.com/auth/spreadsheets",
-    "https://www.googleapis.com/auth/drive.file",
-    "https://www.googleapis.com/auth/drive"
-    ]
-
-CREDS = Credentials.from_service_account_file('creds.json')
-SCOPED_CREDS = CREDS.with_scopes(SCOPE)
-GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-SHEET = GSPREAD_CLIENT.open('project-3')
-
-sales = SHEET.worksheet('sales')
-data = sales.get_all_values()
-
 
 def welcome_message():
     print(
