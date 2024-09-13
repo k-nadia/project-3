@@ -27,6 +27,19 @@ PAST_WEATHER_BASE_URL = 'https://api.openweathermap.org/'
 # https://api.openweathermap.org/data/3.0/onecall/timemachine?lat={lat}&lon=
 # {lon}&dt={time}&appid={api key}
 
+def initialise_json_file(filename='weather_history.json'):
+    """
+    Initialise the JSON file if it doesn't exist.
+    """
+    if not os.path.exists(filename):
+        try:
+            with open(filename, 'w') as f:
+                f.write('')
+            print(f"{Fore.GREEN}Weather history file initialised.\n")
+        except IOError as e:
+            print(f"{Fore.RED}Error initialising weather history file: {e}")
+
+
 def welcome_message():
     print(
         f"{Fore.CYAN + Style.BRIGHT}\n"
@@ -280,6 +293,7 @@ def options_menu():
 
 def main():
     welcome_message()
+    initialise_json_file()
     
     while True:
         name = input_name()
