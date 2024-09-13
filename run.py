@@ -42,8 +42,8 @@ def initialise_json_file(filename='weather_history.json'):
 
 def save_to_json(data, filename='weather_history.json'):
     """
-    Function to save the weather data (that the user has retrieved)
-    to a JSON file
+    Function to save the weather data (that the user has retrieved
+    from the OpenWeather API) to a JSON file
     """
     try:
         with open(filename, 'a') as f:
@@ -51,6 +51,14 @@ def save_to_json(data, filename='weather_history.json'):
             f.write('\n')
     except IOError as e:
         print(f"{Fore.RED}Error saving data: {e}")
+
+
+def read_from_json(filename='weather_history.json'):
+    try:
+        with open(filename, 'r') as f:
+            return [json.loads(line) for line in f]
+    except FileNotFoundError:
+        return []
 
 
 def welcome_message():
