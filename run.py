@@ -83,6 +83,15 @@ def view_weather_history():
         elif entry['type'] == 'current':
             print(f"{Fore.GREEN}Date: Current")
 
+        data = entry['data']
+        if entry['type'] == 'current':
+            current = data['current']
+            print(f"{Fore.GREEN}Weather: {current['weather'][0]['main']}")
+            print(f"{Fore.GREEN}Temperature: {current['temp']}°C")
+            print(f"{Fore.GREEN}Humidity: {current['humidity']}%")
+            print(f"{Fore.GREEN}Wind Speed: {current['wind_speed']} m/s")
+            print(f"{Fore.GREEN}Rain (last 1h): {current.get('rain', {}).get('1h', 0)} mm")
+
 def welcome_message():
     print(
         f"{Fore.CYAN + Style.BRIGHT}\n"
