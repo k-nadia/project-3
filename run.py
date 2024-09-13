@@ -29,7 +29,7 @@ PAST_WEATHER_BASE_URL = 'https://api.openweathermap.org/'
 
 def initialise_json_file(filename='weather_history.json'):
     """
-    Initialise the JSON file if it doesn't exist.
+    Function to initialise the JSON file if it doesn't exist.
     """
     if not os.path.exists(filename):
         try:
@@ -38,6 +38,19 @@ def initialise_json_file(filename='weather_history.json'):
             print(f"{Fore.GREEN}Weather history file initialised.\n")
         except IOError as e:
             print(f"{Fore.RED}Error initialising weather history file: {e}")
+
+
+def save_to_json(data, filename='weather_history.json'):
+    """
+    Function to save the weather data (that the user has retrieved)
+    to a JSON file
+    """
+    try:
+        with open(filename, 'a') as f:
+            json.dump(data, f)
+            f.write('\n')
+    except IOError as e:
+        print(f"{Fore.RED}Error saving data: {e}")
 
 
 def welcome_message():
