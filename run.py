@@ -65,7 +65,7 @@ def read_from_json(filename='weather_history.json'):
 def clear_json(filename='weather_history.json'):
     try:
         open(filename, 'w').close()
-        print(f"{Fore.GREEN}Weather data history cleared successfully.")
+        print(f"{Fore.GREEN}\nWeather data history cleared successfully.")
     except IOError as e:
         print(f"{Fore.RED}Error clearing weather history: {e}")
 
