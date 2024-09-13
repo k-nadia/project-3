@@ -293,7 +293,7 @@ def forecast_weather(lat, lon, name):
             days_offset = (forecast_date - today).days
 
             if weather_data.status_code == 200:
-                save_to_json({'type': 'current', 'city': name, 'data': weather_info})
+                save_to_json({'type': 'daily', 'city': name, 'data': weather_info})
                 daily = weather_info['daily'][0]
 
                 weather = daily['weather'][0]['main']
