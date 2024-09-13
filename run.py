@@ -92,6 +92,16 @@ def view_weather_history():
             print(f"{Fore.GREEN}Wind Speed: {current['wind_speed']} m/s")
             print(f"{Fore.GREEN}Rain (last 1h): {current.get('rain', {}).get('1h', 0)} mm")
 
+        elif entry['type'] == 'forecast':
+            daily = data['daily'][0]
+            print(f"{Fore.GREEN}Weather: {daily['weather'][0]['main']}")
+            print(f"{Fore.GREEN}Temperature: Min {daily['temp']['min']}°C, Max {daily['temp']['max']}°C")
+            print(f"{Fore.GREEN}Humidity: {daily['humidity']}%")
+            print(f"{Fore.GREEN}Wind Speed: {daily['wind_speed']} m/s")
+            print(f"{Fore.GREEN}Rain: {daily.get('rain', 0)} mm")
+        print(f"{Fore.CYAN}-----------------------------")
+
+
 def welcome_message():
     print(
         f"{Fore.CYAN + Style.BRIGHT}\n"
