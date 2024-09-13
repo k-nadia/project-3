@@ -83,7 +83,7 @@ def view_weather_history():
         if entry['type'] == 'forecast':
             print(f"{Fore.GREEN}Date: {entry['date']}")
         elif entry['type'] == 'current':
-            print(f"{Fore.GREEN}Date: Current")
+            print(f"{Fore.GREEN}Date: Today")
         
         data = entry['data']
         # Log to check data structure
@@ -200,7 +200,7 @@ def current_weather(lat, lon, name):
     if weather_data.status_code == 200:
         save_to_json({'type': 'current', 'city': name, 'data': weather_info})
         current = weather_info['current']
-        daily = weather_info['daily']
+        daily = weather_info['daily'][0]
 
         weather = current['weather'][0]['main']
         temp = current['temp']
@@ -295,6 +295,7 @@ def forecast_weather(lat, lon, name):
             if weather_data.status_code == 200:
                 save_to_json({'type': 'daily', 'city': name, 'data': weather_info})
                 daily = weather_info['daily']
+                current = weather_info['current'][0]
 
                 weather = daily['weather'][0]['main']
                 temp_min = daily['temp']['min']
