@@ -247,11 +247,14 @@ def options_menu():
         print("1: View the current weather")
         print("2: View weather alerts")
         print("3: View daily weather forecast")
-        print("5: Choose a new location")
-        print("6: Start over")
-        choice = input("Enter your choice (1, 2, 3, 5 or 6): ")
+        print("4: Choose a new location")
+        print("5: View weather data history")
+        print("6: Clear weather data history")
+        print("7: Start over")
+        choice = input("Enter your choice (1-7): ")
         
         if choice == '1':
+            print()
             return 'current_weather'
         elif choice == '2':
             print()
@@ -259,14 +262,20 @@ def options_menu():
         elif choice == '3':
             print()
             return 'forecast_weather'
-        elif choice == '5':
+        elif choice == '4':
             print()
             return 'geocode_city'
+        elif choice == '5':
+            print()
+            return 'view_weather_history'
         elif choice == '6':
-            print(f"\nRestarting WeatherWise application...\n")
-            return 'input_name'
+            print()
+            return 'clear_weather_history'
+        elif choice == '7':
+            print()
+            return 'start_over'
         else:
-            print(f"{Fore.RED}Invalid option. Please enter 1, 2, 3, 5, or 6.")
+            print(f"{Fore.RED}Invalid option. Please enter a number between 1 and 7.")
 
 
 def main():
