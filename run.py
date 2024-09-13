@@ -69,6 +69,10 @@ def clear_json(filename='weather_history.json'):
         print(f"{Fore.RED}Error clearing weather history: {e}")
 
 
+def view_weather_history():
+    history = read_from_json()
+
+
 def welcome_message():
     print(
         f"{Fore.CYAN + Style.BRIGHT}\n"
