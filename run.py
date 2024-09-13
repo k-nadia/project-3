@@ -87,7 +87,7 @@ def view_weather_history():
         
         data = entry['data']
         # Log to check data structure
-        print(f"{Fore.YELLOW}Debug: {data}")
+        #print(f"{Fore.YELLOW}Debug: {data}")
 
         if entry['type'] == 'current':
             if 'current' not in data:
@@ -371,8 +371,8 @@ def main():
                         elif actions[choice] == welcome_message:
                             print("\nRestarting WeatherWise application...\n")
                             break
-                        elif actions[choice] == view_weather_history:
-                            actions[choice]()
+                        elif actions[choice] in [view_weather_history, clear_json]:
+                            actions[choice]() 
                         else:
                             latitude = city_geo_data["lat"]
                             longitude = city_geo_data["lon"]
