@@ -370,7 +370,7 @@ def main():
                             latitude = city_geo_data["lat"]
                             longitude = city_geo_data["lon"]
                             city_name = city_geo_data["name"]
-                            actions[choice](latitude, longitude, city_name)
+                            actions[choice]()
                     else:
                         print(f"{Fore.RED}Invalid option. Please try again.")
             else:
