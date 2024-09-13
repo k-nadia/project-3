@@ -85,8 +85,8 @@ def view_weather_history():
         elif entry['type'] == 'current':
             print(f"{Fore.GREEN}Date: Current")
         
-        data = entry['data']
         if entry['type'] == 'current':
+            data = entry['data']
             current = data['current']
             print(f"{Fore.GREEN}Weather: {current['weather'][0]['main']}")
             print(f"{Fore.GREEN}Temperature: {current['temp']}°C")
@@ -191,7 +191,7 @@ def current_weather(lat, lon, name):
     weather_info = weather_data.json()
 
     if weather_data.status_code == 200:
-        save_to_json({'type': 'current', 'city': name, 'data': weather_info['current']})
+        save_to_json({'type': 'current', 'city': name, 'data': weather_info})
         current = weather_info['current']
         daily = weather_info['daily'][0]
 
@@ -370,7 +370,7 @@ def main():
                             latitude = city_geo_data["lat"]
                             longitude = city_geo_data["lon"]
                             city_name = city_geo_data["name"]
-                            actions[choice]()
+                            actions[choice](latitude, longitude, city_name)
                     else:
                         print(f"{Fore.RED}Invalid option. Please try again.")
             else:
