@@ -330,23 +330,14 @@ def options_menu():
         choice = input("Enter your choice (1-7): ")
         
         if choice in ['1', '2', '3', '4', '5', '6', '7']:
-            print()  
-            return {
-                '1': 'current_weather',
-                '2': 'weather_alerts',
-                '3': 'forecast_weather',
-                '4': 'geocode_city',
-                '5': 'view_weather_history',
-                '6': 'clear_weather_history',
-                '7': 'start_over'
-            }[choice]
+            return choice
         else:
             print(f"{Fore.RED}Invalid option. Please enter a number between 1 and 7.")
 
 
 def main():
     welcome_message()
-    initialize_json_file()
+    initialise_json_file()
 
     while True:
         name = input_name()
@@ -362,7 +353,7 @@ def main():
                         '3': forecast_weather,
                         '4': geocode_city,
                         '5': view_weather_history,
-                        '6': clear_weather_history,
+                        '6': clear_json,
                         '7': welcome_message
                     }
 
@@ -384,6 +375,3 @@ def main():
 
 
 main()
-
-
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
