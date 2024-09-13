@@ -266,27 +266,17 @@ def options_menu():
         print("7: Start over")
         choice = input("Enter your choice (1-7): ")
         
-        if choice == '1':
-            print()
-            return 'current_weather'
-        elif choice == '2':
-            print()
-            return 'weather_alerts'
-        elif choice == '3':
-            print()
-            return 'forecast_weather'
-        elif choice == '4':
-            print()
-            return 'geocode_city'
-        elif choice == '5':
-            print()
-            return 'view_weather_history'
-        elif choice == '6':
-            print()
-            return 'clear_weather_history'
-        elif choice == '7':
-            print()
-            return 'start_over'
+        if choice in ['1', '2', '3', '4', '5', '6', '7']:
+            print()  
+            return {
+                '1': 'current_weather',
+                '2': 'weather_alerts',
+                '3': 'forecast_weather',
+                '4': 'geocode_city',
+                '5': 'view_weather_history',
+                '6': 'clear_weather_history',
+                '7': 'start_over'
+            }[choice]
         else:
             print(f"{Fore.RED}Invalid option. Please enter a number between 1 and 7.")
 
