@@ -85,13 +85,20 @@ def view_weather_history():
         elif entry['type'] == 'current':
             print(f"{Fore.GREEN}Date: Current")
         
+        data = entry['data']
+        # Log to check data structure
+        print(f"{Fore.YELLOW}Debug: {data}")
+
         if entry['type'] == 'current':
-            data = entry['data']
+            if 'current' not in data:
+                print(f"{Fore.RED}Error: Missing 'current' key in entry for {entry['city']}.")
+                continue
             current = data['current']
-            print(f"{Fore.GREEN}Weather: {current['weather'][0]['main']}")
-            print(f"{Fore.GREEN}Temperature: {current['temp']}°C")
-            print(f"{Fore.GREEN}Humidity: {current['humidity']}%")
-            print(f"{Fore.GREEN}Wind Speed: {current['wind_speed']} m/s")
+
+            print(f"{Fore.GREEN}Weather: {current.get('weather', [{}])[0].get('main', 'N/A')}")
+            print(f"{Fore.GREEN}Temperature: {current.get('temp', 'N/A')}°C")
+            print(f"{Fore.GREEN}Humidity: {current.get('humidity', 'N/A')}%")
+            print(f"{Fore.GREEN}Wind Speed: {current.get('wind_speed', 'N/A')} m/s")
             print(f"{Fore.GREEN}Rain (last 1h): {current.get('rain', {}).get('1h', 0)} mm")
         elif entry['type'] == 'forecast':
             daily = data['daily'][0]
