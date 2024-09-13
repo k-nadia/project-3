@@ -75,6 +75,7 @@ def view_weather_history():
     if not history:
         print(f"{Fore.YELLOW}No weather history available.")
         return
+    
     print(f"\n{Fore.CYAN}Weather History:")
     for entry in history:
         print(f"\n{Fore.GREEN}Type: {entry['type']}")
@@ -83,7 +84,7 @@ def view_weather_history():
             print(f"{Fore.GREEN}Date: {entry['date']}")
         elif entry['type'] == 'current':
             print(f"{Fore.GREEN}Date: Current")
-
+        
         data = entry['data']
         if entry['type'] == 'current':
             current = data['current']
@@ -92,7 +93,6 @@ def view_weather_history():
             print(f"{Fore.GREEN}Humidity: {current['humidity']}%")
             print(f"{Fore.GREEN}Wind Speed: {current['wind_speed']} m/s")
             print(f"{Fore.GREEN}Rain (last 1h): {current.get('rain', {}).get('1h', 0)} mm")
-
         elif entry['type'] == 'forecast':
             daily = data['daily'][0]
             print(f"{Fore.GREEN}Weather: {daily['weather'][0]['main']}")
@@ -191,7 +191,7 @@ def current_weather(lat, lon, name):
     weather_info = weather_data.json()
 
     if weather_data.status_code == 200:
-        save_to_json({'type': 'current', 'city': name, 'data': weather_info})
+        save_to_json({'type': 'current', 'city': name, 'data': weather_info['current']})
         current = weather_info['current']
         daily = weather_info['daily'][0]
 
@@ -246,7 +246,7 @@ def weather_alerts(lat, lon, name):
                 print(alert.get('description', 'No description available'))
         else:
             print(f"{Fore.GREEN}"
-                  f"Good news! There are no active weather alerts for {name}.")
+                  f"\nGood news! There are no active weather alerts for {name}.")
     else:
         print(f"{Fore.RED}Error: Unable to retrieve weather alert data.")
 
@@ -364,6 +364,8 @@ def main():
                         elif actions[choice] == welcome_message:
                             print("\nRestarting WeatherWise application...\n")
                             break
+                        elif actions[choice] == view_weather_history:
+                            actions[choice]()
                         else:
                             latitude = city_geo_data["lat"]
                             longitude = city_geo_data["lon"]
