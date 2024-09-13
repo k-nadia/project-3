@@ -71,7 +71,9 @@ def clear_json(filename='weather_history.json'):
 
 def view_weather_history():
     history = read_from_json()
-
+    if not history:
+        print(f"{Fore.YELLOW}No weather history available.")
+        return
 
 def welcome_message():
     print(
