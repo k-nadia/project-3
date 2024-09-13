@@ -74,6 +74,14 @@ def view_weather_history():
     if not history:
         print(f"{Fore.YELLOW}No weather history available.")
         return
+    print(f"\n{Fore.CYAN}Weather History:")
+    for entry in history:
+        print(f"\n{Fore.GREEN}Type: {entry['type']}")
+        print(f"{Fore.GREEN}City: {entry['city']}")
+        if entry['type'] == 'forecast':
+            print(f"{Fore.GREEN}Date: {entry['date']}")
+        elif entry['type'] == 'current':
+            print(f"{Fore.GREEN}Date: Current")
 
 def welcome_message():
     print(
