@@ -346,8 +346,8 @@ def options_menu():
 
 def main():
     welcome_message()
-    initialise_json_file()
-    
+    initialize_json_file()
+
     while True:
         name = input_name()
 
@@ -356,28 +356,31 @@ def main():
             if city_geo_data:
                 while True:
                     choice = options_menu()
+                    actions = {
+                        '1': current_weather,
+                        '2': weather_alerts,
+                        '3': forecast_weather,
+                        '4': geocode_city,
+                        '5': view_weather_history,
+                        '6': clear_weather_history,
+                        '7': welcome_message
+                    }
 
-                    if choice in ['current_weather', 'weather_alerts', 'forecast_weather']:
-                        latitude = city_geo_data["lat"]
-                        longitude = city_geo_data["lon"]
-                        city_name = city_geo_data["name"]
-                        
-                        if choice == 'current_weather':
-                            current_weather(latitude, longitude, city_name)
-                        elif choice == 'weather_alerts':
-                            weather_alerts(latitude, longitude, city_name)
-                        elif choice == 'forecast_weather':
-                            forecast_weather(latitude, longitude, city_name)
-                    elif choice == 'geocode_city':
-                        break
-                    elif choice == 'input_name':
-                        break
-                if choice == 'input_name':
-                    break
+                    if choice in actions:
+                        if actions[choice] == geocode_city:
+                            break
+                        elif actions[choice] == welcome_message:
+                            print("\nRestarting WeatherWise application...\n")
+                            break
+                        else:
+                            latitude = city_geo_data["lat"]
+                            longitude = city_geo_data["lon"]
+                            city_name = city_geo_data["name"]
+                            actions[choice](latitude, longitude, city_name)
+                    else:
+                        print(f"{Fore.RED}Invalid option. Please try again.")
             else:
                 print(f"{Fore.RED}Failed to get city data. Please try again.")
-            if choice == 'input_name':
-                break
 
 
 main()
