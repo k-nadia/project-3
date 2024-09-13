@@ -200,7 +200,6 @@ def current_weather(lat, lon, name):
     if weather_data.status_code == 200:
         save_to_json({'type': 'current', 'city': name, 'data': weather_info})
         current = weather_info['current']
-        daily = weather_info['daily'][0]
 
         weather = current['weather'][0]['main']
         temp = current['temp']
@@ -294,7 +293,7 @@ def forecast_weather(lat, lon, name):
 
             if weather_data.status_code == 200:
                 save_to_json({'type': 'daily', 'city': name, 'data': weather_info})
-                daily = weather_info['daily'][0]
+                daily = weather_info['daily']
 
                 weather = daily['weather'][0]['main']
                 temp_min = daily['temp']['min']
