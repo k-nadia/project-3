@@ -282,9 +282,8 @@ def forecast_weather(lat, lon, name):
             days_offset = (forecast_date - today).days
 
             if weather_data.status_code == 200:
-                save_to_json({'type': 'daily', 'city': name, 'data': weather_info})
-                daily = weather_info['daily']
-                current = weather_info['current'][0]
+                save_to_json({'type': 'forecast', 'city': name, 'date': date_input, 'data': weather_info})
+                daily = weather_info['daily'][days_offset]
 
                 weather = daily['weather'][0]['main']
                 temp_min = daily['temp']['min']
