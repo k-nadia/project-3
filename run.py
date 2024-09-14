@@ -121,17 +121,6 @@ def welcome_message():
         )
 
 
-def input_name():
-    while True:
-        name = input(f"{Fore.CYAN} Please enter your name: ")
-        if name == "" or name == " ":
-            print(f"{Fore.MAGENTA} This is not a valid name,"
-                  " please try again...\n")
-            continue
-        else:
-            break
-
-
 def geocode_city():
     """
     Prompts the user to enter a city name and retrieves the geographical
@@ -349,40 +338,37 @@ def main():
     initialise_json_file()
 
     while True:
-        name = input_name()
+        city_geo_data = geocode_city()
+        if city_geo_data:
+            while True:
+                choice = options_menu()
+                actions = {
+                    '1': current_weather,
+                    '2': weather_alerts,
+                    '3': forecast_weather,
+                    '4': geocode_city,
+                    '5': view_weather_history,
+                    '6': clear_json,
+                    '7': welcome_message
+                }
 
-        while True:
-            city_geo_data = geocode_city()
-            if city_geo_data:
-                while True:
-                    choice = options_menu()
-                    actions = {
-                        '1': current_weather,
-                        '2': weather_alerts,
-                        '3': forecast_weather,
-                        '4': geocode_city,
-                        '5': view_weather_history,
-                        '6': clear_json,
-                        '7': welcome_message
-                    }
-
-                    if choice in actions:
-                        if actions[choice] == geocode_city:
-                            break
-                        elif actions[choice] == welcome_message:
-                            print("\nRestarting WeatherWise application...\n")
-                            break
-                        elif actions[choice] in [view_weather_history, clear_json]:
-                            actions[choice]() 
-                        else:
-                            latitude = city_geo_data["lat"]
-                            longitude = city_geo_data["lon"]
-                            city_name = city_geo_data["name"]
-                            actions[choice](latitude, longitude, city_name)
+                if choice in actions:
+                    if actions[choice] == geocode_city:
+                        break
+                    elif actions[choice] == welcome_message:
+                        print("\nRestarting WeatherWise application...\n")
+                        break
+                    elif actions[choice] in [view_weather_history, clear_json]:
+                        actions[choice]() 
                     else:
-                        print(f"{Fore.RED}Invalid option. Please try again.")
-            else:
-                print(f"{Fore.RED}Failed to get city data. Please try again.")
+                        latitude = city_geo_data["lat"]
+                        longitude = city_geo_data["lon"]
+                        city_name = city_geo_data["name"]
+                        actions[choice](latitude, longitude, city_name)
+                else:
+                    print(f"{Fore.RED}Invalid option. Please try again.")
+        else:
+            print(f"{Fore.RED}Failed to get city data. Please try again.")
 
 
 main()
