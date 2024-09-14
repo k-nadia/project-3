@@ -128,7 +128,7 @@ def geocode_city():
     API's geocoding service.
     """
     while True:
-        input_city = input(f"{Fore.CYAN} Please enter your city: ")
+        input_city = input(f"{Fore.CYAN}\n Please enter your city: ")
         try:
             city = requests.get(f'{GEOCODING_BASE_URL}q={input_city}'
                                 f'&limit=1&appid={api_key}')
@@ -253,7 +253,7 @@ def forecast_weather(lat, lon, name):
     user up to 8 days into the future. It retrieves data for the requested
     date and prints it.
     """
-    print(f"{Fore.CYAN}Enter a date to view the weather forecast "
+    print(f"{Fore.CYAN}\nEnter a date to view the weather forecast "
           f"up to 8 days from today (DD/MM/YYYY):")
 
     weather_data = requests.get(
@@ -275,7 +275,7 @@ def forecast_weather(lat, lon, name):
             max_date = datetime.now() + timedelta(days=8)
 
             if forecast_date < today or forecast_date > max_date:
-                print(f"{Fore.RED}Error: Please enter a date within "
+                print(f"{Fore.RED}\nError: Please enter a date within "
                       f"8 days from today and not in the past.")
                 continue
             
