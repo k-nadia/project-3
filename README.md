@@ -186,3 +186,5 @@ Clone this project using the following steps:
 ### **Information Resources**
 
 ### **Special Thanks**
+
+Special thanks to my mentor Diego Pupato for your guidance and support throughout this project.
