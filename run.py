@@ -24,6 +24,7 @@ CURRENT_AND_FORECAST_BASE_URL = (
 # https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}
 # &exclude={part}&appid={api key}
 
+
 def initialise_json_file(filename='weather_history.json'):
     """
     Function to initialise the JSON file if it doesn't exist.
@@ -71,7 +72,7 @@ def view_weather_history():
     if not history:
         print(f"{Fore.YELLOW}\nNo weather history available.")
         return
-    
+    # Iterates through each 'entry' in history and print data to terminal
     print(f"\n{Fore.CYAN}Weather History:")
     for entry in history:
         print(f"\n{Fore.GREEN}Type: {entry['type']}")
@@ -80,7 +81,7 @@ def view_weather_history():
             print(f"{Fore.GREEN}Date: {entry['date']}")
         elif entry['type'] == 'current':
             print(f"{Fore.GREEN}Date: Today")
-        
+        # Define data variable
         data = entry['data']
 
         if entry['type'] == 'current':
@@ -139,7 +140,7 @@ def geocode_city():
             city_name = city_geo_data["name"]
             latitude = city_geo_data["lat"]
             longitude = city_geo_data["lon"]
-            state = city_geo_data.get("state", "N/A") 
+            state = city_geo_data.get("state", "N/A")
             country = city_geo_data["country"]
 
             location_str = f"{city_name}, {state}, {country}" if state != "N/A" else f"{city_name}, {country}"
@@ -272,7 +273,7 @@ def forecast_weather(lat, lon, name):
                 print(f"{Fore.RED + Style.BRIGHT}\nError: Please enter a date within "
                       f"8 days from today and not in the past.")
                 continue
-            
+            # Calculate number of days between today and chosen forecast date
             days_offset = (forecast_date - today).days
 
             if weather_data.status_code == 200:
@@ -287,7 +288,7 @@ def forecast_weather(lat, lon, name):
                 daily_summary = daily.get('summary', 'No summary available')
                 daily_rain_chance = daily.get('pop', 0) * 100
                 daily_rain_volume = daily.get('rain', 0)
-                
+                # Print weather forecast data to terminal in readable format
                 print(f"\n{Fore.GREEN + Style.BRIGHT}Weather forecast for {name} on "
                       f"{forecast_date.strftime('%A, %B %d %Y')}:")
                 print(f"\n{Fore.GREEN}Weather: {weather}")
@@ -319,7 +320,7 @@ def options_menu():
         print("6: Clear weather data history")
         print("7: Start over")
         choice = input("Enter your choice (1-7): ")
-        
+
         if choice in ['1', '2', '3', '4', '5', '6', '7']:
             return choice
         else:
@@ -352,7 +353,7 @@ def main():
                         print("\nRestarting WeatherWise application...\n")
                         break
                     elif actions[choice] in [view_weather_history, clear_json]:
-                        actions[choice]() 
+                        actions[choice]()
                     else:
                         latitude = city_geo_data["lat"]
                         longitude = city_geo_data["lon"]
