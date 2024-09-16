@@ -18,7 +18,7 @@ WeatherWise is a Python-based command line application that offers current, dail
 
 WeatherWise was designed as an ultra-efficient solution for users who require access to weather information at a moments notice. The no-frills, data-driven interface eliminates elements typical of a traditional weather info site which can hinder data delivery speed and negatively impact the user experience, such as: ads, slow-loading graphics, unrelated content, cookies and complex navigation menus.
 
-Deployed website can be be found here: [WeatherWise App](https://weather-watch-210a26c768c5.herokuapp.com/)
+Deployed website can be be found here: [WeatherWise App](https://weather-wise-app-7e6e2cb6b2e0.herokuapp.com/)
 
 <p align="center">
 <img src ="assets/images/README/AmIResponsive-mockup.png" width="auto" height="auto" alt="AmIResponsive placeholder image showing the following viewports: desktop, laptop, tablet, mobile">
