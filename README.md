@@ -200,6 +200,9 @@ Clone this project using the following steps:
 
 ### **Information Resources**
 
+- API key hiding tutorial from [Puppy Coding](https://puppycoding.com/2023/07/02/hide-api-keys-python/)
+- Follow up API key tutorial from [Puppy Coding](https://puppycoding.com/2023/07/06/hide-api-keys-deploy-server/)
+
 ### **Special Thanks**
 
 Special thanks to my mentor Diego Pupato for your guidance and support throughout this project.
