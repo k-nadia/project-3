@@ -52,6 +52,9 @@ def save_to_json(data, filename='weather_history.json'):
 
 
 def read_from_json(filename='weather_history.json'):
+    """
+    Function to read the JSON file
+    """
     try:
         with open(filename, 'r') as f:
             return [json.loads(line) for line in f]
@@ -60,6 +63,9 @@ def read_from_json(filename='weather_history.json'):
 
 
 def clear_json(filename='weather_history.json'):
+    """
+    Function to clear the JSON file
+    """
     try:
         open(filename, 'w').close()
         print(f"{Fore.GREEN}\nWeather data history cleared successfully.")
@@ -68,6 +74,9 @@ def clear_json(filename='weather_history.json'):
 
 
 def view_weather_history():
+    """
+    Prints the weather data history to the terminal
+    """
     history = read_from_json()
     if not history:
         print(f"{Fore.YELLOW}\nNo weather history available.")
@@ -111,6 +120,9 @@ def view_weather_history():
 
 
 def welcome_message():
+    """
+    Welcome message to introduce the app to the user
+    """
     print(
         f"{Fore.CYAN + Style.BRIGHT}\n"
         "  W E L C O M E   T O   W E A T H E R W I S E   A P P . . .  \n"
@@ -329,6 +341,10 @@ def forecast_weather(lat, lon, name):
 
 
 def options_menu():
+    """
+    Provides user with a menu of options to choose
+    from and interact with the WeatherWise app via
+    """
     while True:
         print(f"\n{Fore.CYAN + Style.BRIGHT}Please choose an option: ")
         print("1: View the current weather")
@@ -348,6 +364,11 @@ def options_menu():
 
 
 def main():
+    """
+    Runs all app functions in the correct order
+    and provides exception/error handling for
+    the user
+    """
     welcome_message()
     initialise_json_file()
 
