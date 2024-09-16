@@ -86,19 +86,24 @@ def view_weather_history():
 
         if entry['type'] == 'current':
             if 'current' not in data:
-                print(f"{Fore.RED}Error: Missing 'current' key in entry for {entry['city']}.")
+                print(f"""{Fore.RED}Error: Missing 'current' key in entry
+                for {entry['city']}.""")
                 continue
             current = data['current']
 
-            print(f"{Fore.GREEN}Weather: {current.get('weather', [{}])[0].get('main', 'N/A')}")
+            print(f"{Fore.GREEN}Weather: "
+                  f"{current.get('weather', [{}])[0].get('main', 'N/A')}")
             print(f"{Fore.GREEN}Temperature: {current.get('temp', 'N/A')}°C")
             print(f"{Fore.GREEN}Humidity: {current.get('humidity', 'N/A')}%")
-            print(f"{Fore.GREEN}Wind Speed: {current.get('wind_speed', 'N/A')} m/s")
-            print(f"{Fore.GREEN}Rain (last 1h): {current.get('rain', {}).get('1h', 0)} mm")
+            print(f"{Fore.GREEN}Wind Speed: "
+                  f"{current.get('wind_speed', 'N/A')} m/s")
+            print(f"{Fore.GREEN}Rain (last 1h): "
+                  f"{current.get('rain', {}).get('1h', 0)} mm")
         elif entry['type'] == 'forecast':
             daily = data['daily'][0]
             print(f"{Fore.GREEN}Weather: {daily['weather'][0]['main']}")
-            print(f"{Fore.GREEN}Temperature: Min {daily['temp']['min']}°C, Max {daily['temp']['max']}°C")
+            print(f"{Fore.GREEN}Temperature: Min {daily['temp']['min']}°C, "
+                  f"Max {daily['temp']['max']}°C")
             print(f"{Fore.GREEN}Humidity: {daily['humidity']}%")
             print(f"{Fore.GREEN}Wind Speed: {daily['wind_speed']} m/s")
             print(f"{Fore.GREEN}Rain: {daily.get('rain', 0)} mm")
@@ -123,7 +128,8 @@ def geocode_city():
     API's geocoding service.
     """
     while True:
-        input_city = input(f"{Fore.CYAN + Style.BRIGHT} Please enter your city: ")
+        input_city = input(f"""{Fore.CYAN + Style.BRIGHT}
+        Please enter your city: """)
         try:
             city = requests.get(f'{GEOCODING_BASE_URL}q={input_city}'
                                 f'&limit=1&appid={api_key}')
@@ -142,8 +148,9 @@ def geocode_city():
             longitude = city_geo_data["lon"]
             state = city_geo_data.get("state", "N/A")
             country = city_geo_data["country"]
-
-            location_str = f"{city_name}, {state}, {country}" if state != "N/A" else f"{city_name}, {country}"
+            location_str = (f"{city_name}, {state}, {country}"
+                            if state != "N/A"
+                            else f"{city_name}, {country}")
             print(f"\n{Fore.GREEN}Your location is {location_str}.")
             print(f"Latitude: {latitude}")
             print(f"Longitude: {longitude}")
@@ -196,7 +203,8 @@ def current_weather(lat, lon, name):
         daily_rain_chance = daily.get('pop', 0) * 100
         daily_rain_volume = daily.get('rain', 0)
 
-        print(f"\n{Fore.GREEN + Style.BRIGHT}Here are the current weather stats for {name}:")
+        print(f"\n{Fore.GREEN + Style.BRIGHT}Here are the current weather "
+              f"stats for {name}:")
         print(f"\n{Fore.GREEN}Weather: {weather}")
         print(f"{Fore.GREEN}Temperature: {temp}°C")
         print(f"{Fore.GREEN}Humidity: {humidity}%")
@@ -236,10 +244,11 @@ def weather_alerts(lat, lon, name):
                 print(f"{Fore.WHITE}Description: ", end="")
                 print(alert.get('description', 'No description available'))
         else:
-            print(f"{Fore.GREEN + Style.BRIGHT}"
-                  f"\nGood news! There are no active weather alerts for {name}.")
+            print(f"{Fore.GREEN + Style.BRIGHT}\nGood news! "
+                  f"There are no active weather alerts for {name}.")
     else:
-        print(f"{Fore.RED + Style.BRIGHT}Error: Unable to retrieve weather alert data.")
+        print(f"{Fore.RED + Style.BRIGHT}Error: Unable to retrieve weather "
+              f"alert data.")
 
 
 def forecast_weather(lat, lon, name):
@@ -248,8 +257,8 @@ def forecast_weather(lat, lon, name):
     user up to 8 days into the future. It retrieves data for the requested
     date and prints it.
     """
-    print(f"{Fore.CYAN + Style.BRIGHT}\nEnter a date to view the weather forecast "
-          f"up to 8 days from today (DD/MM/YYYY):")
+    print(f"{Fore.CYAN + Style.BRIGHT}\nEnter a date to view the weather "
+          f"forecast up to 8 days from today (DD/MM/YYYY):")
 
     weather_data = requests.get(
         f'{CURRENT_AND_FORECAST_BASE_URL}'
@@ -262,7 +271,8 @@ def forecast_weather(lat, lon, name):
     weather_info = weather_data.json()
 
     while True:
-        date_input = input(f"{Fore.CYAN + Style.BRIGHT}Enter your chosen date: ")
+        date_input = input(f"""{Fore.CYAN + Style.BRIGHT}
+        Enter your chosen date: """)
 
         try:
             forecast_date = datetime.strptime(date_input, '%d/%m/%Y')
@@ -270,14 +280,19 @@ def forecast_weather(lat, lon, name):
             max_date = datetime.now() + timedelta(days=8)
 
             if forecast_date < today or forecast_date > max_date:
-                print(f"{Fore.RED + Style.BRIGHT}\nError: Please enter a date within "
-                      f"8 days from today and not in the past.")
+                print(f"{Fore.RED + Style.BRIGHT}\nError: Please enter a date "
+                      f"within 8 days from today and not in the past.")
                 continue
             # Calculate number of days between today and chosen forecast date
             days_offset = (forecast_date - today).days
 
             if weather_data.status_code == 200:
-                save_to_json({'type': 'forecast', 'city': name, 'date': date_input, 'data': weather_info})
+                save_to_json({
+                            'type': 'forecast',
+                            'city': name,
+                            'date': date_input,
+                            'data': weather_info
+                })
                 daily = weather_info['daily'][days_offset]
 
                 weather = daily['weather'][0]['main']
@@ -289,24 +304,28 @@ def forecast_weather(lat, lon, name):
                 daily_rain_chance = daily.get('pop', 0) * 100
                 daily_rain_volume = daily.get('rain', 0)
                 # Print weather forecast data to terminal in readable format
-                print(f"\n{Fore.GREEN + Style.BRIGHT}Weather forecast for {name} on "
-                      f"{forecast_date.strftime('%A, %B %d %Y')}:")
+                print(f"\n{Fore.GREEN + Style.BRIGHT}Weather forecast for "
+                      f"{name} on {forecast_date.strftime('%A, %B %d %Y')}:")
                 print(f"\n{Fore.GREEN}Weather: {weather}")
-                print(f"{Fore.GREEN}Temperature: Min {temp_min}°C, Max {temp_max}°C")
+                print(f"{Fore.GREEN}Temperature: Min {temp_min}°C, "
+                      f"Max {temp_max}°C")
                 print(f"{Fore.GREEN}Humidity: {humidity}%")
                 print(f"{Fore.GREEN}Wind Speed: {wind_speed} m/s")
 
                 print(f"\n{Fore.BLUE + Style.BRIGHT}Rain Information:")
                 print(f"{Fore.BLUE}Chance of Rain: {daily_rain_chance:.1f}%")
-                print(f"{Fore.BLUE}Expected Rain Volume: {daily_rain_volume} mm")
+                print(f"{Fore.RED + Style.BRIGHT} Error: Unable to retrieve "
+                      f"weather forecast data.")
 
                 print(f"\n{Fore.GREEN}Forecast Summary: {daily_summary}")
             else:
-                print(f"{Fore.RED + Style.BRIGHT} Error: Unable to retrieve weather forecast data.")
+                print(f"{Fore.RED + Style.BRIGHT} Error: Unable to retrieve "
+                      f"weather forecast data.")
             break
 
         except ValueError:
-            print(f"{Fore.RED + Style.BRIGHT}Invalid date format. Please use DD/MM/YYYY.")
+            print(f"{Fore.RED + Style.BRIGHT}Invalid date format. Please use "
+                  f"DD/MM/YYYY.")
 
 
 def options_menu():
@@ -324,7 +343,8 @@ def options_menu():
         if choice in ['1', '2', '3', '4', '5', '6', '7']:
             return choice
         else:
-            print(f"{Fore.RED + Style.BRIGHT}Invalid option. Please enter a number between 1 and 7.")
+            print(f"{Fore.RED + Style.BRIGHT}Invalid option. "
+                  f"Please enter a number between 1 and 7.")
 
 
 def main():
@@ -360,9 +380,11 @@ def main():
                         city_name = city_geo_data["name"]
                         actions[choice](latitude, longitude, city_name)
                 else:
-                    print(f"{Fore.RED + Style.BRIGHT}Invalid option. Please try again.")
+                    print(f"{Fore.RED + Style.BRIGHT}Invalid option. "
+                          f"Please try again.")
         else:
-            print(f"{Fore.RED + Style.BRIGHT}Failed to get city data. Please try again.")
+            print(f"{Fore.RED + Style.BRIGHT}Failed to get city data. "
+                  f"Please try again.")
 
 
 main()
