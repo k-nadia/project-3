@@ -203,6 +203,8 @@ Clone this project using the following steps:
 
 ### **Information Resources**
 
+- GET Request tutorial from [Medium](https://medium.com/@yash.tewani.nyc/get-request-with-stackoverflow-api-using-a-python-script-and-postman-f6d34b3f6f57)
+- Python data structure tutorial from [Python](https://docs.python.org/3/tutorial/datastructures.html)
 - API key hiding tutorial from [Puppy Coding](https://puppycoding.com/2023/07/02/hide-api-keys-python/)
 - Follow up API key tutorial from [Puppy Coding](https://puppycoding.com/2023/07/06/hide-api-keys-deploy-server/)
 
