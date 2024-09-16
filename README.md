@@ -58,6 +58,18 @@ Deployed website can be be found here: [WeatherWise App](https://weather-watch-2
 
 ### **Colours**
 
+The [Colorama](https://pypi.org/project/colorama/) library was imported into the project and used to produce coloured terminal text. Additional colors were utilised in order to improve readability and user experience.
+
+The following colors were used:
+- Cyan - used for the welcome message and input requests to the user (e.g. 'Please enter your city'). As cyan is a particularly bright colour it provides a high level of contrast agains the black terminal background and therefore has a high level of readability.
+- Green - used for weather data results such as current weather stats, the color shade is also fairly bright to provide a good level of readability.
+- Blue - used to convey rain information to the user as the colour is often associated with rain.
+- Red - used to alert the user of any errors, such as 'Invalid date format. Please use DD/MM/YYYY'.
+
+Colorama 'BRIGHT' style was also used to increase the thickness of certain terminal text.
+
+Below - Colorama full color palette chart:
+
 <hr>
 
 ## **User Experience - UX**
