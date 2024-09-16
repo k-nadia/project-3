@@ -38,6 +38,7 @@ Deployed website can be be found here: [WeatherWise App](https://weather-watch-2
     - [General App Testing](#general-app-testing)
     - [PEP8 Validator Service](#pep8-validator-service)
     - [Google Chrome Lighthouse Tool](#google-chrome-lighthouse-tool)
+    - [Testing Issues](#testing-issues)
     - [Unfixed Bugs](#unfixed-bugs)
 - [Deployment](#deployment)
     - [Deployment Steps](#deployment-steps)
@@ -124,6 +125,20 @@ As a developer, I wish to:
 Google Chrome Lighthouse Tool was used to test performance, accessibility, best practices and SEO of the WeatherWise application on desktop. Here are the test results:
 
 ![LighthouseTestingResults](./assets/images/README/lighthouse-testing-results.JPG)
+
+### **Testing Issues**
+
+Issue 1
+
+During testing of the application I inputted 'Monaco' for the city value input and had the error message below returned in terminal. Looking at the error message I determined that the error had arisen because the API response for 'Monaco' did not have a 'state' key associated with it, unlike the majority of other cities.
+
+To fix this bug I modified the geocode_city function to be able to handle instances where the chosen city does not have a 'state' key present. I amended the function code so that if no 'state' key is present, the program will default to "N/A" instead of raising a KeyError. I also modified the 'location_str' variable to include an if statement which will remove the state key from the print message if the city state is 'N/A'.
+
+These actions fixed the bug and after implementing them the function worked correctly when 'stateless' cities were inputted by the user.
+
+Below - screenshot of the 'state' bug error message encountered:
+
+![TestingIssueScreensyhot](./assets/images/README/Testing/issue-1.png)
 
 ### **Unfixed Bugs**
 

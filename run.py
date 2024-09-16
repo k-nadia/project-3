@@ -139,7 +139,7 @@ def geocode_city():
             city_name = city_geo_data["name"]
             latitude = city_geo_data["lat"]
             longitude = city_geo_data["lon"]
-            state = city_geo_data.get("state", "N/A")  # Use get() with a default value
+            state = city_geo_data.get("state", "N/A") 
             country = city_geo_data["country"]
 
             location_str = f"{city_name}, {state}, {country}" if state != "N/A" else f"{city_name}, {country}"
