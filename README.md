@@ -120,6 +120,12 @@ As a developer, I wish to:
 ### **PEP8 Validator Service**
 ![PEP8](https://img.shields.io/badge/PEP8-0078D7?style=for-the-badge&logo=pep8&logoColor=white)
 
+The [pycodestyle](https://pypi.org/project/pycodestyle/) Python tool (formerly called PEP8) was used to check run.py for PEP8 style conventions compliance and flag any issues found in the file. All issues flagged by the tool were dealt with and the tool was re-run and showed no issues in the file.
+
+Below: screenshot of result after running pycodestyle in the terminal, no errors appear:
+
+![PEP8TestingResults](./assets/images/README/Testing/pep8-testing-results.JPG)
+
 ### **Google Chrome Lighthouse Tool**
 
 Google Chrome Lighthouse Tool was used to test performance, accessibility, best practices and SEO of the WeatherWise application on desktop. Here are the test results:
