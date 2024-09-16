@@ -198,6 +198,8 @@ Clone this project using the following steps:
 
 ### **Content Sources**
 
+- Geographical data, coordinates and city location information provided by OpenWeather [Geocoding API](https://openweathermap.org/api/geocoding-api)
+- Current weather information and daily weather forecast data provided by the OpenWeather [One Call API 3.0](https://openweathermap.org/api/one-call-3#current)
 
 ### **Information Resources**
 
