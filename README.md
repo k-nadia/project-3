@@ -123,6 +123,8 @@ As a developer, I wish to:
 
 ### **Unfixed Bugs**
 
+As far as I am aware these are no unfixed bugs within this project.
+
 <hr>
 
 ## **Deployment**
