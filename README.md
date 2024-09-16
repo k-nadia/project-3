@@ -121,6 +121,10 @@ As a developer, I wish to:
 
 ### **Google Chrome Lighthouse Tool**
 
+Google Chrome Lighthouse Tool was used to test performance, accessibility, best practices and SEO of the WeatherWise application on desktop. Here are the test results:
+
+![LighthouseTestingResults](./assets/images/README/lighthouse-testing-results.JPG)
+
 ### **Unfixed Bugs**
 
 As far as I am aware these are no unfixed bugs within this project.
