@@ -180,6 +180,7 @@ Clone this project using the following steps:
 - [DateTime:](https://pypi.org/project/DateTime/) provides DataTime data type
 - [PPrint:](https://docs.python.org/3/library/pprint.html) enables python output to be properly formatted 
 - [Requests:](https://pypi.org/project/requests/) allows HTTP requests to be sent
+- [Dotenv:](https://pypi.org/project/python-dotenv/) handes Python environment variables
 
 ### **Frameworks And Programs Used**
 
