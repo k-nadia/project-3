@@ -45,8 +45,8 @@ Deployed website can be be found here: [WeatherWise App](https://weather-watch-2
     - [Cloning Steps](#cloning-steps)    
 - [Technologies Used](#technologies-used)
 	- [Languages Used](#languages-used)
-    - [Python Packages](#python-packages)
-	- [Frameworks - Libraries - Programs Used](#frameworks---libraries---programs-used)
+    - [Python Libraries](#python-libraries)
+	- [Frameworks And Programs Used](#frameworks-and-programs-used)
 - [Credits](#credits)
 	- [Content Sources](#content-sources)
     - [Information Resources](#information-resources)
@@ -175,13 +175,13 @@ Clone this project using the following steps:
 ### **Languages Used**
 - ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 
-### **Python Packages**
+### **Python Libraries**
 - [Colorama:](https://pypi.org/project/colorama/) enables coloured text display in the terminal
 - [DateTime:](https://pypi.org/project/DateTime/) provides DataTime data type
 - [PPrint:](https://docs.python.org/3/library/pprint.html) enables python output to be properly formatted 
 - [Requests:](https://pypi.org/project/requests/) allows HTTP requests to be sent
 
-### **Frameworks - Libraries - Programs Used**
+### **Frameworks And Programs Used**
 
 - ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white) - Version control system used to track file versions within the project.
 - ![Github](https://img.shields.io/badge/github-121013?style=for-the-badge&logo=github&logoColor=white) - Cloud-based version control developer platform used in this project to host the repository, manage code and track code changes.
