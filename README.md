@@ -70,6 +70,8 @@ Colorama 'BRIGHT' style was also used to increase the thickness of certain termi
 
 Below - Colorama full color palette chart:
 
+![ColoramaColorChart](./assets/images/README/colorama-color-chart.png)
+
 <hr>
 
 ## **User Experience - UX**
