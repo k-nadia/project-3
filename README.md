@@ -101,6 +101,7 @@ As a developer, I wish to:
 ### **Flow Charts**
 
 [LucidChart](https://www.lucidchart.com/) was used create a flowchart to visualise the programming sequence.
+
 ![LucidChart Flowchart Image](./assets/images/README/flowchart.png)
 
 <hr>

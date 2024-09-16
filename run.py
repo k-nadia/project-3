@@ -86,8 +86,6 @@ def view_weather_history():
             print(f"{Fore.GREEN}Date: Today")
         
         data = entry['data']
-        # Log to check data structure
-        #print(f"{Fore.YELLOW}Debug: {data}")
 
         if entry['type'] == 'current':
             if 'current' not in data:
