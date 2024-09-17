@@ -197,6 +197,20 @@ During testing the deployed application I encountered the following FileNotFound
 
 After checking my api_key I realised that the issue was being caused because my API key within my api_key.txt file had not been assigned to a variable name and was therefore not being retrieved by the program. Only the API key itself was inside the file, but this should have been formatted as 'e.g. api_key = ughif93757669444'. After making this correction the api_key element was linked properly and the program ran as expected without error.
 
+Issue 4
+
+When I ran my run.py code through the 'pycodestyle' tool to check that my code conforms to PEP8 style standards I found that there were a few 'E501 line too long' errors. After attempting to split the line of code below I found that the new format of the code had caused the print message to split onto a new line also. I hadn't intended for this and wanted to split the line in the code but keep the print message on a single line. 
+
+Below - code causing the formatting issue
+
+![FStringIncorrectCode](./assets/images/README/Testing/issue-4-code-before.JPG)
+
+A quick Google search revealed to me that the correct way to split f strings across multiple would be to start each subsequent line with an 'f' which should be aligned correctly with the f-string above it. 
+
+After implementing this fix (shown in the code below) and running the program, the code ran correctly with the print message being on a single line and the actual code being split among several lines to reduce line length.
+
+![FStringCorrectedCode](./assets/images/README/Testing/issue-4-code-after.JPG)
+
 ### **Unfixed Bugs**
 
 As far as I am aware these are no unfixed bugs within this project.
