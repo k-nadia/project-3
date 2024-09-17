@@ -21,7 +21,7 @@ WeatherWise was designed as an ultra-efficient solution for users who require ac
 Deployed website can be be found here: [WeatherWise App](https://weather-wise-app-7e6e2cb6b2e0.herokuapp.com/)
 
 <p align="center">
-<img src ="assets/images/README/AmIResponsive-mockup.png" width="auto" height="auto" alt="AmIResponsive placeholder image showing the following viewports: desktop, laptop, tablet, mobile">
+<img src ="assets/images/README/welcome-screen.JPG" width="auto" height="auto" alt="Screenshot image showing the WeatherWise application welcome screen">
 </p>
 
 # Table of Contents
