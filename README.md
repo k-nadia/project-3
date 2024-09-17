@@ -189,6 +189,14 @@ Below - the corrected code:
 
 ![AmendedPythonCodeScreenshot](./assets/images/README/Testing/issue-2-code-after.JPG)
 
+Issue 3
+
+During testing the deployed application I encountered the following FileNotFound error message:
+
+![APIKeyErrorScreenshot](./assets/images/README/Testing/issue-3.JPG)
+
+After checking my api_key I realised that the issue was being caused because my API key within my api_key.txt file had not been assigned to a variable name and was therefore not being retrieved by the program. Only the API key itself was inside the file, but this should have been formatted as 'e.g. api_key = ughif93757669444'. After making this correction the api_key element was linked properly and the program ran as expected without error.
+
 ### **Unfixed Bugs**
 
 As far as I am aware these are no unfixed bugs within this project.
