@@ -34,6 +34,7 @@ Deployed website can be be found here: [WeatherWise App](https://weather-wise-ap
 	- [Flow Charts](#flow-charts)
 - [Features](#features)
 	- [Navigation](#navigation)
+    - [Future App Improvements](#future-app-improvements)
 - [Testing](#testing)
     - [General App Testing](#general-app-testing)
     - [PEP8 Validator Service](#pep8-validator-service)
@@ -111,6 +112,11 @@ As a developer, I wish to:
 ## **Features**
 
 ### **Navigation**
+
+### **Future App Improvements**
+- With additional development time I would like to implement an IP filtering function into the application, which would enable each users IP address to be checked and their respective JSON weather history data values to be allocated to the corresponding IP address. Returning users who load the app would have their past weather data retrieved by matching their IP to the accompanying weather data, in the case that a match was located.
+
+- I would also like to implement a function to allow the user to enter a historic date in time and retrieve the weather for that specific day for their chosen location.
 
 <hr>
 
