@@ -37,6 +37,7 @@ Deployed website can be be found here: [WeatherWise App](https://weather-wise-ap
     - [Options Menu](#options-menu)
     - [Current Weather](#current-weather)
     - [Daily Weather Forecast](#daily-weather-forecast)
+    - [Weather Alerts](#weather-alerts)
     - [Save Weather Data History](#save-weather-data-history)
     - [Future App Improvements](#future-app-improvements)
 - [Testing](#testing)
@@ -116,10 +117,17 @@ As a developer, I wish to:
 ## **Features**
 
 ### **Introduction Message**
+The 'WeatherWise' app name was chosen in order to immediately convey the purpose of the app as simple but efficient weather forecasting tool. Upon loading, the WeatherWise application displays the app logo (created using ASCII art), a message welcoming the user and a prompt requesting the user enter a city name.
+
+The app then advises the user of how to format their search terms for increased specificity (by inputting 'CITY, STATE, COUNTRY') and shows an example of this format to provide further context to the user.
+
+![Welcome Screen](./assets/images/README/welcome-screen.JPG)
 
 ### **Options Menu**
 
 ### **Current Weather**
+
+### **Weather Alerts**
 
 ### **Daily Weather Forecast**
 
