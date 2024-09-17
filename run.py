@@ -2,6 +2,7 @@ import json
 import os
 from dotenv import load_dotenv
 import requests
+import ascii
 from datetime import datetime, timedelta
 import colorama
 from colorama import Fore, Back, Style
@@ -123,6 +124,7 @@ def welcome_message():
     """
     Welcome message to introduce the app to the user
     """
+    print(f"{Fore.BLACK + Back.CYAN + Style.BRIGHT}{ascii.LOGO}")
     print(
         f"{Fore.CYAN + Style.BRIGHT}\n"
         "  W E L C O M E   T O   W E A T H E R W I S E   A P P . . .  \n"
