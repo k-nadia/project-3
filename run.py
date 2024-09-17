@@ -139,9 +139,13 @@ def geocode_city():
     coordinates (latitude and longitude) of that city using the OpenWeather
     API's geocoding service.
     """
+    print(f"{Fore.CYAN + Style.BRIGHT}\nPlease enter your city name to start.\n"
+          f"\nFor a more specific city search, use the following format:"
+          f"\n'CITY, STATE, COUNTRY' e.g. 'Hamilton, Ontario, Canada'")
+
     while True:
-        input_city = input(f"""{Fore.CYAN + Style.BRIGHT}
-        Please enter your city: """)
+        input_city = input(f"{Fore.CYAN + Style.BRIGHT}"
+                           f"\nEnter your city: ")
         try:
             city = requests.get(f'{GEOCODING_BASE_URL}q={input_city}'
                                 f'&limit=1&appid={api_key}')
