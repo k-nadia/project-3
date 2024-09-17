@@ -34,7 +34,7 @@ Deployed website can be be found here: [WeatherWise App](https://weather-wise-ap
 	- [Flow Charts](#flow-charts)
 - [Features](#features)
 	- [Introduction Message](#introduction-message)
-    - [Options Menu](#options-menu)
+    - [Navigation](#navigation)
     - [Current Weather](#current-weather)
     - [Daily Weather Forecast](#daily-weather-forecast)
     - [Weather Alerts](#weather-alerts)
@@ -123,7 +123,12 @@ The app then advises the user of how to format their search terms for increased 
 
 ![Welcome Screen](./assets/images/README/welcome-screen.JPG)
 
-### **Options Menu**
+### **Navigation**
+The application navigation function is handle by an options menu which provides the user 7 different options from which to select. These options include the ability to view a range of weather forecast types, choose a new city, restart the program and view or clear the user's weather data history from the WeatherWise app. The options menu is designed to have clearly defined options which are straightforward to navigate and provide the user with feedback if an error arises.
+
+The program validates the user input within options menu function, to check whether a valid value has been entered. If the input is not valid, an appropriate error message will then notify the user and prompt them to try again, e.g. 'Invalid option. Please enter a number between 1 and 7.'
+
+![Navigation Menu](./assets/images/README/feature-navigation.png)
 
 ### **Current Weather**
 
