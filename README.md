@@ -146,8 +146,16 @@ Below the current weather, the options menu is printed so that the user can then
 
 ### **Weather Alerts**
 
+Option 2
+
+Below - example of a weather alert for Port Heinden, Alaska:
+
 ![Weather Alerts](./assets/images/README/feature-alert-1.JPG)
 ![Weather Alerts](./assets/images/README/feature-alert-2.JPG)
+
+In the instance that the user's chosen location does not have any active weather alerts, the below message is printed to the terminal:
+
+![Weather Alerts](./assets/images/README/feature-alert-3.JPG)
 
 ### **Daily Weather Forecast**
 
