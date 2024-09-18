@@ -130,6 +130,8 @@ These options include the ability to view a range of weather forecast types, cho
 
 The program validates the user input within options menu function, to check whether a valid value has been entered. If the input is not valid, an appropriate error message will then notify the user and prompt them to try again, e.g. 'Invalid option. Please enter a number between 1 and 7.'
 
+Navigation menu option 1 allows the user to select a new location to retrieve the weather forecast for and option 7 re-loads the app from the beginning of the program.
+
 ![Navigation Menu](./assets/images/README/feature-navigation.png)
 
 ### **Current Weather**
