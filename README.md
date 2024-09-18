@@ -93,7 +93,7 @@ As a user, I wish to:
 - View the current weather forecast, so I can plan my immediate activities accordingly.
 - See the daily weather forecast, so I can plan my week and make informed decisions about upcoming events.
 - Be notified of any national weather alerts, so I can stay safe and prepared for potential severe weather conditions.
-- Access historical weather data, so I can compare current conditions with past trends and make long-term plans.
+- View the app's weather data history and be able to clear the history, so I can access and delete data I have viewed in the app.
 - Use a simple and intuitive interface, so I can navigate the application easily without needing extensive instructions.
 
 As a developer, I wish to: 
@@ -130,7 +130,7 @@ These options include the ability to view a range of weather forecast types, cho
 
 The program validates the user input within options menu function, to check whether a valid value has been entered. If the input is not valid, an appropriate error message will then notify the user and prompt them to try again, e.g. 'Invalid option. Please enter a number between 1 and 7.'
 
-Navigation menu option 1 allows the user to select a new location to retrieve the weather forecast for and option 7 re-loads the app from the beginning of the program.
+Navigation menu option 4 allows the user to select a new location to retrieve the weather forecast for and option 7 re-loads the app from the beginning of the program.
 
 ![Navigation Menu](./assets/images/README/feature-navigation.png)
 
