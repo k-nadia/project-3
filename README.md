@@ -185,8 +185,22 @@ Below shows the error message which appears in the case that either todays date 
 
 ### **Save Weather Data History**
 
+Option 5 'View weather data history' will print the history of the weather data the user has retrieved.
+
+The WeatherWise app uses a JSON file entitled 'weather_history' to enable the weather data viewed by the user in the course of using the app to be saved and stored within the file.
+
+Below is an example of how the weather data history is displayed. Each historic data item (relating to either Current Weather or Daily Weather Forecast) is presented in the same format so that the information is clear and easy for the user to read.
+
 ![Save Weather Data History](./assets/images/README/feature-history-1.JPG)
 ![Save Weather Data History](./assets/images/README/feature-history-2.JPG)
+
+In the case that there is not any weather data history to display, the following message will be printed:
+
+![Save Weather Data History](./assets/images/README/feature-history-4.JPG)
+
+By selecting menu option 6 users can opt to clear their weather data history from the WeatherWise application.
+
+Below shows the message users receive to confirm their weather data history has been successfully cleared.
 
 ![Save Weather Data History](./assets/images/README/feature-history-3.JPG)
 
