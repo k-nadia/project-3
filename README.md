@@ -146,6 +146,9 @@ Below the current weather, the options menu is printed so that the user can then
 
 ### **Weather Alerts**
 
+![Weather Alerts](./assets/images/README/feature-alert-1.JPG)
+![Weather Alerts](./assets/images/README/feature-alert-2.JPG)
+
 ### **Daily Weather Forecast**
 
 ### **Save Weather Data History**
