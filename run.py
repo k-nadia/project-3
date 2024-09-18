@@ -289,8 +289,8 @@ def forecast_weather(lat, lon, name):
     weather_info = weather_data.json()
 
     while True:
-        date_input = input(f"""{Fore.CYAN + Style.BRIGHT}
-        Enter your chosen date: """)
+        date_input = input(f"{Fore.CYAN + Style.BRIGHT}"
+                           f"Enter your chosen date: ")
 
         try:
             forecast_date = datetime.strptime(date_input, '%d/%m/%Y')
