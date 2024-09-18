@@ -185,6 +185,11 @@ Below shows the error message which appears in the case that either todays date 
 
 ### **Save Weather Data History**
 
+![Save Weather Data History](./assets/images/README/feature-history-1.JPG)
+![Save Weather Data History](./assets/images/README/feature-history-2.JPG)
+
+![Save Weather Data History](./assets/images/README/feature-history-3.JPG)
+
 ### **Future App Improvements**
 - With additional development time I would like to implement an IP filtering function into the application, which would enable each users IP address to be checked and their respective JSON weather history data values to be allocated to the corresponding IP address. Returning users who load the app would have their past weather data retrieved by matching their IP to the accompanying weather data, in the case that a match was located.
 
