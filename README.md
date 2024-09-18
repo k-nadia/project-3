@@ -146,12 +146,18 @@ Below the current weather, the options menu is printed so that the user can then
 
 ### **Weather Alerts**
 
-Option 2
+Option 2 displays any current weather alerts for the user's chosen location. All weather alerts printed to the terminal begin with the name of the weather alert (e.g. High Surf Advisory), followed by the authority which has sent out the weather alert (e.g. NWS Anchorage AK).
 
-Below - example of a weather alert for Port Heinden, Alaska:
+The format of the details of the weather alert depends on the type of weather alert and the information which has been provided by the weather alert sender. The options menu is printed once more underneath the weather alert.
+
+Below - example of a 'High Surf Advisory' weather alert for Port Heinden, Alaska, USA:
 
 ![Weather Alerts](./assets/images/README/feature-alert-1.JPG)
 ![Weather Alerts](./assets/images/README/feature-alert-2.JPG)
+
+Below - example of a 'Air Quality Alert' weather alert for DeSoto, Texas, USA:
+
+![Weather Alert](./assets/images/README/feature-alert-4.JPG)
 
 In the instance that the user's chosen location does not have any active weather alerts, the below message is printed to the terminal:
 
