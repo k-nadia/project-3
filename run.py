@@ -332,8 +332,6 @@ def forecast_weather(lat, lon, name):
 
                 print(f"\n{Fore.BLUE + Style.BRIGHT}Rain Information:")
                 print(f"{Fore.BLUE}Chance of Rain: {daily_rain_chance:.1f}%")
-                print(f"{Fore.RED + Style.BRIGHT} Error: Unable to retrieve "
-                      f"weather forecast data.")
 
                 print(f"\n{Fore.GREEN}Forecast Summary: {daily_summary}")
             else:
