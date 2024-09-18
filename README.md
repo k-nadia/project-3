@@ -165,9 +165,21 @@ In the instance that the user's chosen location does not have any active weather
 
 ### **Daily Weather Forecast**
 
+Option 3 from the navigation menu prompts the user to enter a date 8 days from the present day to view the weather forecast for this day. in Instructions in the terminal specify that the date must be entered in DD/MM/YYYY format.
+
+![Weather Forecast](./assets/images/README/feature-forecast-4.JPG)
+
+When a valid date is inputted by the user, the daily weather forecast for the chosen date is printed to the terminal. Weather data displayed includes minimum and maximum temperature (in celsius), humidity percentage, wind speed (in metres per second), chance of rain percentage and a weather summary for the day.
+
+Below is an example future daily weather forecast for Kyoto, Japan:
+
 ![Weather Forecast](./assets/images/README/feature-forecast-1.JPG)
 
+The message error below is displayed if the user inputs their chosen date in the wrong format (e.g. MM/DD/YYYY instead of the correct format DD/MM/YYYY):
+
 ![Weather Forecast Error Message](./assets/images/README/feature-forecast-2.JPG)
+
+Below shows the error message which appears in the case that either todays date or a date from the past is inputted into the terminal:
 
 ![Weather Forecast Error Message](./assets/images/README/feature-forecast-3.JPG)
 
