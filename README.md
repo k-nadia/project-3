@@ -134,6 +134,16 @@ The program validates the user input within options menu function, to check whet
 
 ### **Current Weather**
 
+If the user selects '1' the current weather for their chosen city is printed to the terminal. The information consists of overall weather description (e.g. clear), tempature (in celsius), humidity percentage, windspeed (in metres per second). 
+
+Rain information is also displayed and informs the user of the current rainfall volume (in mm), percentage chance of rain today and expected rainfall volume today (in mm).
+
+At the end of the weather statistics there is a single sentence which provides an overall summary of the today's weather, which provides a quick, general forecast for users who are in a rush to find out the weather forecast.
+
+Below the current weather, the options menu is printed so that the user can then select the next option they wish to view.
+
+![Current Weather](./assets/images/README/feature-current-weather.png)
+
 ### **Weather Alerts**
 
 ### **Daily Weather Forecast**
