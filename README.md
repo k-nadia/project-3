@@ -165,6 +165,12 @@ In the instance that the user's chosen location does not have any active weather
 
 ### **Daily Weather Forecast**
 
+![Weather Forecast](./assets/images/README/feature-forecast-1.JPG)
+
+![Weather Forecast Error Message](./assets/images/README/feature-forecast-2.JPG)
+
+![Weather Forecast Error Message](./assets/images/README/feature-forecast-3.JPG)
+
 ### **Save Weather Data History**
 
 ### **Future App Improvements**
