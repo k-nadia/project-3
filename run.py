@@ -290,7 +290,7 @@ def forecast_weather(lat, lon, name):
 
     while True:
         date_input = input(f"{Fore.CYAN + Style.BRIGHT}"
-                           f"Enter your chosen date: ")
+                           f"\nEnter your chosen date: ")
 
         try:
             forecast_date = datetime.strptime(date_input, '%d/%m/%Y')
